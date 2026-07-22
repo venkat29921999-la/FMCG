@@ -1,0 +1,342 @@
+/* =========================================================
+   MERIDIAN — 404 Page Styles
+   Same 3-colour system as the main site:
+     --ink #12211C   --gold #C9973F   --base #F1EEE4
+   ========================================================= */
+
+*, *::before, *::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+
+:root{
+  --ink: #12211C;
+  --ink-2: #1E3329;
+  --ink-70: rgba(18,33,28,.7);
+  --ink-45: rgba(18,33,28,.45);
+
+  --gold: #C9973F;
+  --gold-2: #E4B968;
+  --gold-12: rgba(201,151,63,.12);
+
+  --base: #F1EEE4;
+  --base-60: rgba(241,238,228,.6);
+  --base-40: rgba(241,238,228,.4);
+  --base-12: rgba(241,238,228,.12);
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --ease: cubic-bezier(.22,.68,0,1);
+}
+
+html, body{ overflow-x:hidden; width:100%; }
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family: var(--font-body);
+  background: var(--ink);
+  color: var(--base);
+  line-height:1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font-family:inherit; cursor:pointer; }
+
+/* =========================================================
+   BACKDROP
+   ========================================================= */
+.error-bg{
+  position: fixed; inset:0; z-index:0;
+  background:
+    linear-gradient(180deg, rgba(18,33,28,.92), rgba(18,33,28,.97)),
+    url("Assest/grocery_shelf.webp") center/cover no-repeat;
+  filter: saturate(.5);
+}
+.error-bg::after{
+  content:"";
+  position:absolute; inset:0;
+  background-image: radial-gradient(rgba(241,238,228,.06) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+.error-bg::before{
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(55% 45% at 50% 20%, var(--gold-12), transparent 65%);
+}
+.bg-fallback-note{ display:none; }
+
+/* floating particles */
+.error-particles{ position: fixed; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
+.error-particles span{
+  position:absolute;
+  width:5px; height:5px; border-radius:50%;
+  background: var(--gold);
+  box-shadow: 0 0 10px 2px var(--gold-12);
+}
+.error-particles span:nth-child(3n){ background: var(--base-40); box-shadow:none; width:3px; height:3px; }
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+.error-page{
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display:flex;
+  flex-direction: column;
+}
+
+.error-topbar{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 30px 40px;
+}
+.logo{
+  display:flex; align-items:center; gap:10px;
+  font-family: var(--font-display);
+  font-weight:600; font-size:22px;
+  color: var(--base);
+}
+.logo-mark{
+  height: 30px;
+  width: auto;
+  flex-shrink: 0;
+}
+.footer-brand .logo-mark{ height: 34px; }
+.logo .dot{ width:9px; height:9px; border-radius:50%; background: var(--gold); box-shadow: 0 0 0 4px var(--gold-12); }
+.error-tag{
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing:.08em;
+  text-transform: uppercase;
+  color: var(--base-40);
+  display:flex; align-items:center; gap:8px;
+}
+.error-tag .live-dot{
+  width:6px; height:6px; border-radius:50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-12);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+@keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.35; } }
+
+.error-main{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 20px 24px 60px;
+}
+
+.error-content{
+  max-width: 620px;
+  text-align:center;
+}
+
+/* eyebrow */
+.eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family: var(--font-mono);
+  font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+  color: var(--gold-2);
+  margin-bottom: 26px;
+}
+.eyebrow::before{ content:""; width:26px; height:1px; background: var(--gold-2); display:inline-block; }
+
+/* =========================================================
+   404 BARCODE NUMERAL
+   ========================================================= */
+.error-code{
+  position: relative;
+  display:flex; align-items:center; justify-content:center;
+  gap: clamp(6px, 2vw, 18px);
+  margin-bottom: 20px;
+}
+.error-code .digit{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(72px, 16vw, 160px);
+  line-height: 1;
+  color: var(--base);
+  position: relative;
+}
+.error-code .digit.zero{ color: var(--gold); }
+.error-code-frame{
+  position: relative;
+  display:inline-block;
+  padding: 0 6px;
+  overflow: hidden;
+}
+.code-scan{
+  position:absolute; left:0; right:0; height: 3px;
+  top:0;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  box-shadow: 0 0 16px 3px var(--gold);
+  animation: codeScan 2.6s ease-in-out infinite;
+}
+@keyframes codeScan{
+  0%{ top:0%; opacity:0; }
+  10%{ opacity:1; }
+  50%{ top:96%; opacity:1; }
+  60%{ opacity:0; }
+  100%{ top:0%; opacity:0; }
+}
+
+.error-barcode{
+  display:flex; align-items:flex-end; justify-content:center; gap:3px;
+  height: 34px;
+  margin: 4px auto 30px;
+  width: fit-content;
+}
+.error-barcode span{
+  display:block; width:3px; background: var(--base-40);
+  animation: barPulse 1.6s ease-in-out infinite;
+}
+.error-barcode span:nth-child(odd){ background: var(--gold-2); }
+@keyframes barPulse{
+  0%,100%{ transform: scaleY(1); opacity:.8; }
+  50%{ transform: scaleY(.5); opacity:1; }
+}
+
+h1.error-heading{
+  font-family: var(--font-display);
+  font-weight:600;
+  font-size: clamp(26px, 4vw, 38px);
+  line-height:1.15;
+  margin: 0 0 16px;
+  color: var(--base);
+}
+.error-copy{
+  font-size: 15.5px;
+  color: var(--base-60);
+  max-width: 460px;
+  margin: 0 auto 40px;
+}
+.error-copy .sku-ref{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--gold-2);
+}
+
+/* floating box icon */
+.error-icon{
+  font-size: 34px;
+  color: var(--gold);
+  margin: 0 auto 18px;
+  width: 74px; height:74px;
+  border-radius: 50%;
+  background: var(--gold-12);
+  display:flex; align-items:center; justify-content:center;
+  animation: floatIcon 3.2s ease-in-out infinite;
+}
+@keyframes floatIcon{
+  0%,100%{ transform: translateY(0) rotate(-2deg); }
+  50%{ transform: translateY(-12px) rotate(2deg); }
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.error-actions{
+  display:flex; align-items:center; justify-content:center;
+  gap: 16px; flex-wrap: wrap;
+  margin-bottom: 46px;
+}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding: 14px 30px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 13px; letter-spacing:.06em; text-transform:uppercase;
+  border: 1px solid transparent;
+  transition: transform .45s var(--ease), background .3s ease, color .3s ease, border-color .3s ease;
+  white-space: nowrap;
+}
+.btn:hover{ transform: translateY(-2px); }
+.btn-gold{ background: var(--gold); color: var(--ink); }
+.btn-gold:hover{ background: var(--gold-2); }
+.btn-outline{ border-color: var(--base-12); color: var(--base); background: transparent; }
+.btn-outline:hover{ border-color: var(--base); background: var(--base-12); }
+
+/* quick links */
+.error-links{
+  display:flex; align-items:center; justify-content:center;
+  gap: 10px 26px;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing:.03em;
+  color: var(--base-40);
+}
+.error-links a{
+  color: var(--base-60);
+  transition: color .3s ease;
+  position: relative;
+  padding-bottom: 2px;
+}
+.error-links a:hover{ color: var(--gold-2); }
+.error-links span.sep{ color: var(--base-12); }
+
+.error-footer{
+  text-align:center;
+  padding: 22px 24px 30px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing:.04em;
+  color: var(--base-12);
+  position: relative;
+  z-index:2;
+}
+
+/* =========================================================
+   CUSTOM CURSOR (fine-pointer devices only)
+   ========================================================= */
+.cursor-dot, .cursor-ring{
+  position: fixed; top:0; left:0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 50;
+  transform: translate(-50%,-50%);
+  opacity:0;
+}
+.cursor-dot{ width:6px; height:6px; background: var(--gold); }
+.cursor-ring{
+  width: 34px; height: 34px;
+  border: 1px solid var(--base-40);
+  transition: width .3s var(--ease), height .3s var(--ease), border-color .3s ease, background .3s ease;
+}
+.cursor-ring.is-active{ width:54px; height:54px; background: var(--gold-12); border-color: var(--gold); }
+body.has-custom-cursor{ cursor:none; }
+body.has-custom-cursor a, body.has-custom-cursor button{ cursor:none; }
+body.has-custom-cursor .cursor-dot, body.has-custom-cursor .cursor-ring{ opacity:1; }
+
+/* =========================================================
+   REVEAL
+   ========================================================= */
+[data-reveal]{ opacity:0; transform: translateY(24px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+[data-reveal].is-visible{ opacity:1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 720px){
+  .error-topbar{ padding: 22px 20px; }
+  .error-tag span.tag-text{ display:none; }
+  .error-main{ padding: 10px 18px 50px; }
+  .error-actions{ flex-direction: column; width:100%; }
+  .error-actions .btn{ width:100%; }
+  .error-barcode{ height: 26px; }
+  .error-links{ gap: 8px 16px; font-size: 11px; }
+}
+
+@media (max-width: 420px){
+  .error-code .digit{ font-size: clamp(56px, 20vw, 90px); }
+  .logo{ font-size: 19px; }
+  .error-copy{ font-size: 14px; }
+}

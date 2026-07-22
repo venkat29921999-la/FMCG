@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — Meridian</title>
+<meta name="description" content="Sign in to your Meridian account to access your dashboard.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+
+<a href="index.html" class="back-home" data-reveal>
+  <i class="fa-solid fa-arrow-left"></i> Back to Home
+</a>
+
+<div class="auth-page">
+
+  <!-- BRAND SIDE -->
+  <div class="auth-brand">
+    <div class="auth-noise" aria-hidden="true"></div>
+    <div class="auth-brand-top">
+      <a href="index.html" class="logo">
+  <img src="Assest/stackly-icon.webp" alt="Stackly" class="logo-mark">
+  Stackly
+</a>
+    </div>
+
+    <div class="auth-brand-mid">
+      <div class="eyebrow"><i class="fa-solid fa-barcode"></i> Partner Access</div>
+      <h1 class="split-title auth-title">
+        <span class="line"><span class="word">Every</span> <span class="word">shelf</span></span>
+        <span class="line"><span class="word">starts</span> <span class="word">with</span> <span class="word">a</span> <span class="word">login.</span></span>
+      </h1>
+      <p class="lede">One account, every hub. Track SKUs, fill rates, and retail partnerships from a single dashboard — built for the people who run Meridian day to day.</p>
+    </div>
+
+    <div class="auth-brand-bottom">
+      <div class="auth-quote">
+        <i class="fa-solid fa-quote-left"></i>
+        <p>Meridian's fill-rate consistency is the best we've seen from any FMCG supplier we work with.</p>
+        <span>Nadia Ruiz · Northgate Retail</span>
+      </div>
+      <div class="auth-brand-barcode" id="authBarcode"></div>
+    </div>
+  </div>
+
+  <!-- FORM SIDE -->
+  <div class="auth-form-side">
+    <div class="auth-card" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-lock"></i> Sign In</div>
+      <h2>Welcome back.</h2>
+      <p class="auth-sub">Enter your credentials to reach your dashboard.</p>
+
+      <div class="auth-alert" id="authAlert"></div>
+
+      <!-- Shown only if a previous session is already on this device.
+           Never auto-redirects — the person chooses. -->
+      <div class="session-banner" id="sessionBanner" style="display:none;">
+        <i class="fa-solid fa-circle-check"></i>
+        <div>
+          <b>Already signed in as <span id="sessionName"></span></b>
+          <span id="sessionEmail"></span>
+        </div>
+        <div class="session-banner-actions">
+          <button type="button" class="btn btn-line" id="sessionSwitchBtn">Sign in as someone else</button>
+          <button type="button" class="btn btn-gold" id="sessionContinueBtn">Continue <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <form id="loginForm" class="auth-form" novalidate>
+        <div class="form-group">
+          <label for="loginEmail">Email address</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" id="loginEmail" placeholder="you@meridiangoods.com" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-key"></i>
+            <input type="password" id="loginPassword" placeholder="••••••••" required minlength="4">
+            <button type="button" class="input-toggle" id="toggleLoginPw" aria-label="Show password"><i class="fa-solid fa-eye"></i></button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Sign in as</label>
+          <div class="role-toggle" id="loginRoleToggle">
+            <button type="button" class="role-chip is-active" data-role="user">
+              <i class="fa-solid fa-user"></i>
+              <span>User</span>
+            </button>
+            <button type="button" class="role-chip" data-role="admin">
+              <i class="fa-solid fa-user-shield"></i>
+              <span>Admin</span>
+            </button>
+          </div>
+          <input type="hidden" id="loginRole" value="user">
+        </div>
+
+        <div class="auth-row">
+          <label class="check-label">
+            <input type="checkbox" id="rememberMe"> Remember me
+          </label>
+          <a href="404.html" class="auth-link-sm">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-gold btn-block">
+          Sign In <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+
+      <div class="auth-divider"><span>or</span></div>
+
+      <p class="auth-switch">New to Meridian? <a href="signup.html">Create an account</a></p>
+
+      <p class="auth-demo">
+        <i class="fa-solid fa-circle-info"></i>
+        Any email &amp; password will work — pick a role above and sign in.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<style>
+  /* ---- session banner (page-specific, no auto-redirect) ---- */
+  .session-banner{
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    padding: 16px 18px; margin-bottom: 22px;
+    border-radius: var(--radius);
+    background: rgba(76,140,90,.08);
+    border: 1px solid rgba(76,140,90,.25);
+  }
+  .session-banner > i{ color:#2E6B41; font-size:18px; flex-shrink:0; }
+  .session-banner b{ display:block; font-size: 13.5px; color: var(--ink); }
+  .session-banner span{ font-size: 12px; color: var(--ink-45); }
+  .session-banner-actions{ display:flex; gap:10px; margin-left:auto; flex-wrap:wrap; }
+  .session-banner-actions .btn{ padding: 9px 16px; font-size: 11px; }
+  @media (max-width: 480px){
+    .session-banner-actions{ margin-left:0; width:100%; }
+    .session-banner-actions .btn{ flex:1; }
+  }
+</style>
+
+<script>
+/* ---- barcode decoration ---- */
+const bar = document.getElementById('authBarcode');
+if (bar){
+  for (let i = 0; i < 26; i++){
+    const b = document.createElement('span');
+    b.style.height = (10 + Math.round(Math.random() * 22)) + 'px';
+    b.style.width = (Math.random() > .6 ? '3px' : '2px');
+    bar.appendChild(b);
+  }
+}
+
+/* ---- reveal ---- */
+document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('is-visible'));
+try{
+  gsap.timeline({ defaults:{ ease:'power3.out' } })
+    .from('.auth-brand-top', { opacity:0, y:-14, duration:.7 })
+    .from('.auth-title .word', { opacity:0, y:'100%', duration:.8, stagger:.03 }, '-=.4')
+    .from('.auth-brand-mid .lede', { opacity:0, y:16, duration:.7 }, '-=.5')
+    .from('.auth-quote, .auth-brand-barcode', { opacity:0, y:16, duration:.7, stagger:.1 }, '-=.4')
+    .from('.auth-card > *', { opacity:0, y:18, duration:.6, stagger:.06 }, '-=.9');
+}catch(e){}
+
+/* ---- password visibility ---- */
+document.getElementById('toggleLoginPw').addEventListener('click', function(){
+  const input = document.getElementById('loginPassword');
+  const icon = this.querySelector('i');
+  const show = input.type === 'password';
+  input.type = show ? 'text' : 'password';
+  icon.className = show ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
+});
+
+/* ---- role toggle ---- */
+const roleChips = document.querySelectorAll('#loginRoleToggle .role-chip');
+roleChips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    roleChips.forEach(c => c.classList.remove('is-active'));
+    chip.classList.add('is-active');
+    document.getElementById('loginRole').value = chip.getAttribute('data-role');
+  });
+});
+
+/* ---- alert helper ---- */
+function showAlert(msg, type){
+  const el = document.getElementById('authAlert');
+  el.textContent = msg;
+  el.className = 'auth-alert is-visible ' + (type === 'error' ? 'is-error' : 'is-success');
+}
+
+/* ---- users list (still kept so signup.html continues to work) ---- */
+function getUsers(){
+  try{ return JSON.parse(localStorage.getItem('meridian_users') || '[]'); }catch(e){ return []; }
+}
+function saveUsers(list){ localStorage.setItem('meridian_users', JSON.stringify(list)); }
+
+/* ---- login submit: no signup required, any email/password works ---- */
+document.getElementById('loginForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+  const password = document.getElementById('loginPassword').value;
+  const role = document.getElementById('loginRole').value;
+
+  if (!email || !password){
+    showAlert('Enter both an email address and a password.', 'error');
+    return;
+  }
+
+  const users = getUsers();
+  let match = users.find(u => u.email.toLowerCase() === email);
+
+  if (!match){
+    const derivedName = email.split('@')[0]
+      .replace(/[._-]+/g, ' ')
+      .replace(/\b\w/g, c => c.toUpperCase()) || 'Meridian User';
+    match = { name: derivedName, email, password, role };
+    users.push(match);
+    saveUsers(users);
+  }
+
+  const session = { name: match.name, email: match.email, role: role };
+  localStorage.setItem('meridian_session', JSON.stringify(session));
+
+  showAlert('Signed in — redirecting to your dashboard…', 'success');
+  const btn = this.querySelector('button[type=submit]');
+  btn.innerHTML = '<i class="fa-solid fa-check"></i> Success';
+
+  setTimeout(() => {
+    window.location.href = (role === 'admin') ? 'dashboard-admin.html' : 'dashboard-user.html';
+  }, 700);
+});
+
+/* ---------------------------------------------------------
+   Existing session handling — NEVER auto-redirects.
+   The login page always shows the form; if a session already
+   exists on this device we just surface a banner so the person
+   can choose to continue or sign in as someone else.
+   --------------------------------------------------------- */
+(function checkSession(){
+  try{
+    const s = JSON.parse(localStorage.getItem('meridian_session') || 'null');
+    if (!s) return;
+
+    const banner = document.getElementById('sessionBanner');
+    document.getElementById('sessionName').textContent = s.name || 'there';
+    document.getElementById('sessionEmail').textContent = s.email || '';
+    banner.style.display = 'flex';
+
+    document.getElementById('sessionContinueBtn').addEventListener('click', () => {
+      window.location.href = (s.role === 'admin') ? 'dashboard-admin.html' : 'dashboard-user.html';
+    });
+    document.getElementById('sessionSwitchBtn').addEventListener('click', () => {
+      localStorage.removeItem('meridian_session');
+      banner.style.display = 'none';
+      showAlert('Signed out. Enter new credentials below.', 'success');
+      document.getElementById('loginEmail').focus();
+    });
+  }catch(e){}
+})();
+</script>
+</body>
+</html>

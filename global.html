@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Reach — Meridian</title>
+<meta name="description" content="Meridian's global distribution network — 24 regional hubs, 42 countries, 96 ports and airports and a live logistics control tower.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- =========================================================
+     PRELOADER
+     ========================================================= -->
+<div class="preloader" id="preloader">
+  <div class="preloader-mark"><span class="logo"></span><img src="Assest/stackly-icon.webp" alt="Stackly" class="logo-mark">Stackly</div>
+  <div class="preloader-bar"><span id="preloaderFill"></span></div>
+  <div class="preloader-pct" id="preloaderPct">0%</div>
+</div>
+
+<!-- custom cursor (desktop only, see JS) -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- =========================================================
+     HEADER (identical to home)
+     ========================================================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav-wrap">
+<a href="index.html" class="logo">
+  <img src="Assest/stackly-icon.webp" alt="Stackly" class="logo-mark">
+  Stackly
+</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="sustain.html">Sustainability</a>
+      <a href="global.html" class="active">Global Reach</a>
+      <a href="career.html">Careers</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="login.html" class="btn-login"><i class="fa-solid fa-user"></i> Login</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="categories.html">Categories</a>
+  <a href="sustain.html">Sustainability</a>
+  <a href="global.html">Global Reach</a>
+  <a href="career.html">Careers</a>
+  <a href="login.html" class="btn btn-gold"><i class="fa-solid fa-user"></i> Login</a>
+</nav>
+
+<!-- =========================================================
+     1. GLOBAL REACH HERO
+     ========================================================= -->
+<section class="global-hero" id="top">
+  <div class="container">
+    <div class="breadcrumb" data-reveal>
+      <a href="index.html#home">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>Global Reach</span>
+    </div>
+
+    <div class="global-hero-grid">
+      <div class="global-hero-copy">
+        <div class="eyebrow"><i class="fa-solid fa-earth-americas"></i> Worldwide Distribution</div>
+        <h1 class="split-title">
+          <span class="line"><span class="word">One</span> <span class="word">network,</span></span>
+          <span class="line"><span class="word">42</span> <span class="word">countries,</span> <span class="word">zero</span> <span class="word">gaps.</span></span>
+        </h1>
+        <p class="lede">From formulation to final scan, Meridian runs its own regional hubs, fleet and control tower — so every retail partner gets the same reliability, wherever they're stocking shelves.</p>
+        <div class="hero-cta">
+          <a href="#hubs" class="btn btn-gold">See Our Hubs <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#network" class="btn btn-line">View Live Network <i class="fa-solid fa-satellite-dish"></i></a>
+        </div>
+        <div class="hero-stats">
+          <div><b data-count="42">0</b><span>Countries Served</span></div>
+          <div><b data-count="24">0</b><span>Distribution Hubs</span></div>
+          <div><b data-count="48" data-suffix="H">0</b><span>Avg. Replenishment</span></div>
+        </div>
+      </div>
+
+      <div class="global-hero-visual">
+        <div class="hero-frame global-hero-frame">
+          <img src="Assest/forklift_loading.webp" alt="Meridian global distribution warehouse">
+          <span class="scan-line"></span>
+        </div>
+        <div class="hero-tag tag-7">
+          <i class="fa-solid fa-route"></i>
+          <span>96 Ports &amp; Airports</span>
+        </div>
+        <div class="hero-tag tag-8">
+          <i class="fa-solid fa-truck-fast"></i>
+          <span>1,850 Fleet Vehicles</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     2. REGIONAL HUBS
+     ========================================================= -->
+<section class="hubs pillars" id="hubs">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-warehouse"></i> Where We Operate</div>
+      <h2>Five regions, twenty-four hubs, one standard.</h2>
+    </div>
+
+    <div class="pillar-grid">
+      <div class="pillar-card" data-reveal>
+        <img src="Assest/container_port.webp" alt="North America distribution hub">
+        <div class="pillar-info">
+          <i class="fa-solid fa-warehouse"></i>
+          <span class="sku">REGION · 01</span>
+          <h3>North America</h3>
+          <p>Anchor hub: Chicago, USA · 8 centers</p>
+        </div>
+      </div>
+      <div class="pillar-card" data-reveal>
+        <img src="Assest/cargo_ship_port.webp" alt="Europe distribution hub">
+        <div class="pillar-info">
+          <i class="fa-solid fa-warehouse"></i>
+          <span class="sku">REGION · 02</span>
+          <h3>Europe</h3>
+          <p>Anchor hub: Rotterdam, NL · 6 centers</p>
+        </div>
+      </div>
+      <div class="pillar-card" data-reveal>
+        <img src="Assest/container_ship_view.webp" alt="Asia Pacific distribution hub">
+        <div class="pillar-info">
+          <i class="fa-solid fa-warehouse"></i>
+          <span class="sku">REGION · 03</span>
+          <h3>Asia Pacific</h3>
+          <p>Anchor hub: Singapore · 5 centers</p>
+        </div>
+      </div>
+      <div class="pillar-card" data-reveal>
+        <img src="Assest/container_crane_ship.webp" alt="Latin America distribution hub">
+        <div class="pillar-info">
+          <i class="fa-solid fa-warehouse"></i>
+          <span class="sku">REGION · 04</span>
+          <h3>Latin America</h3>
+          <p>Anchor hub: São Paulo, BR · 3 centers</p>
+        </div>
+      </div>
+      <div class="pillar-card" data-reveal>
+        <img src="Assest/dhl_terminal.webp" alt="Middle East and Africa distribution hub">
+        <div class="pillar-info">
+          <i class="fa-solid fa-warehouse"></i>
+          <span class="sku">REGION · 05</span>
+          <h3>Middle East &amp; Africa</h3>
+          <p>Anchor hub: Dubai, UAE · 2 centers</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     3. LIVE NETWORK (animated map)
+     ========================================================= -->
+<section class="network" id="network">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-satellite-dish"></i> Live Network</div>
+      <h2>One control tower, watching every shipment.</h2>
+      <p>Every hub, fleet vehicle and port call feeds a single logistics control tower — routing around delays before a retail partner ever notices one.</p>
+    </div>
+
+    <div class="network-map" data-reveal>
+      <svg class="network-lines" viewBox="0 0 1000 460" preserveAspectRatio="none" aria-hidden="true">
+        <path class="net-path" d="M180,180 Q380,100 520,210" />
+        <path class="net-path" d="M520,210 Q660,250 800,180" />
+        <path class="net-path" d="M180,180 Q300,340 470,380" />
+        <path class="net-path" d="M470,380 Q620,320 800,180" />
+        <path class="net-path" d="M800,180 Q870,270 880,360" />
+        <path class="net-path" d="M470,380 Q650,410 880,360" />
+      </svg>
+
+      <div class="network-node" style="left:18%;top:38%;">
+        <span class="node-ping"></span><span class="node-dot"></span><b>Chicago</b>
+      </div>
+      <div class="network-node" style="left:52%;top:44%;">
+        <span class="node-ping"></span><span class="node-dot"></span><b>Rotterdam</b>
+      </div>
+      <div class="network-node" style="left:47%;top:80%;">
+        <span class="node-ping"></span><span class="node-dot"></span><b>São Paulo</b>
+      </div>
+      <div class="network-node" style="left:80%;top:38%;">
+        <span class="node-ping"></span><span class="node-dot"></span><b>Dubai</b>
+      </div>
+      <div class="network-node" style="left:88%;top:75%;">
+        <span class="node-ping"></span><span class="node-dot"></span><b>Singapore</b>
+      </div>
+
+      <div class="reach-chip network-chip chip-a"><i class="fa-solid fa-warehouse"></i><div><b>24</b><span>Hubs Online</span></div></div>
+      <div class="reach-chip network-chip chip-b"><i class="fa-solid fa-plane"></i><div><b>96</b><span>Ports &amp; Airports</span></div></div>
+      <div class="reach-chip network-chip chip-c"><i class="fa-solid fa-truck-fast"></i><div><b>1,850</b><span>Fleet Vehicles</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     4. REGION SPOTLIGHT (interactive tabs)
+     ========================================================= -->
+<section class="spotlight" id="regions">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-magnifying-glass"></i> Region Deep-Dive</div>
+      <h2>Pick a region. See how it ships.</h2>
+    </div>
+
+    <div class="spotlight-grid">
+      <div class="spotlight-tabs" data-reveal="left">
+        <button class="spotlight-tab is-active" data-target="0"><span class="sk-num">01</span>North America</button>
+        <button class="spotlight-tab" data-target="1"><span class="sk-num">02</span>Europe</button>
+        <button class="spotlight-tab" data-target="2"><span class="sk-num">03</span>Asia Pacific</button>
+        <button class="spotlight-tab" data-target="3"><span class="sk-num">04</span>Latin America</button>
+        <button class="spotlight-tab" data-target="4"><span class="sk-num">05</span>Middle East &amp; Africa</button>
+      </div>
+
+      <div class="spotlight-panels" data-reveal="right">
+        <div class="spotlight-panel is-active" data-panel="0">
+          <div class="spotlight-media"><img src="Assest/container_port_panorama.webp" alt="North America region"></div>
+          <div class="spotlight-copy">
+            <h3>North America</h3>
+            <p>Our largest region by volume, anchored by an 8-hub network that keeps every major retail partner inside a 24-hour delivery window.</p>
+            <ul class="spotlight-features">
+              <li><i class="fa-solid fa-check"></i>8 distribution centers</li>
+              <li><i class="fa-solid fa-check"></i>24H average replenishment</li>
+              <li><i class="fa-solid fa-check"></i>14,000+ retail doors served</li>
+            </ul>
+          </div>
+        </div>
+        <div class="spotlight-panel" data-panel="1">
+          <div class="spotlight-media"><img src="Assest/cargo_ship_port.webp" alt="Europe region"></div>
+          <div class="spotlight-copy">
+            <h3>Europe</h3>
+            <p>Rotterdam anchors a rail-and-road network that reaches most EU retail partners within two working days of a port call.</p>
+            <ul class="spotlight-features">
+              <li><i class="fa-solid fa-check"></i>6 distribution centers</li>
+              <li><i class="fa-solid fa-check"></i>36H average replenishment</li>
+              <li><i class="fa-solid fa-check"></i>18 markets served directly</li>
+            </ul>
+          </div>
+        </div>
+        <div class="spotlight-panel" data-panel="2">
+          <div class="spotlight-media"><img src="Assest/container_ship_view.webp" alt="Asia Pacific region"></div>
+          <div class="spotlight-copy">
+            <h3>Asia Pacific</h3>
+            <p>Singapore's hub sits at the center of our fastest-growing region, feeding both formulation partners and retail distribution.</p>
+            <ul class="spotlight-features">
+              <li><i class="fa-solid fa-check"></i>5 distribution centers</li>
+              <li><i class="fa-solid fa-check"></i>48H average replenishment</li>
+              <li><i class="fa-solid fa-check"></i>11 markets served directly</li>
+            </ul>
+          </div>
+        </div>
+        <div class="spotlight-panel" data-panel="3">
+          <div class="spotlight-media"><img src="Assest/container_crane_ship.webp" alt="Latin America region"></div>
+          <div class="spotlight-copy">
+            <h3>Latin America</h3>
+            <p>São Paulo anchors a growing regional footprint built around local co-manufacturing to shorten cross-border lead times.</p>
+            <ul class="spotlight-features">
+              <li><i class="fa-solid fa-check"></i>3 distribution centers</li>
+              <li><i class="fa-solid fa-check"></i>54H average replenishment</li>
+              <li><i class="fa-solid fa-check"></i>7 markets served directly</li>
+            </ul>
+          </div>
+        </div>
+        <div class="spotlight-panel" data-panel="4">
+          <div class="spotlight-media"><img src="Assest/dhl_terminal.webp" alt="Middle East and Africa region"></div>
+          <div class="spotlight-copy">
+            <h3>Middle East &amp; Africa</h3>
+            <p>Dubai's air-freight-first hub covers our newest markets, prioritizing speed to shelf while ground infrastructure scales.</p>
+            <ul class="spotlight-features">
+              <li><i class="fa-solid fa-check"></i>2 distribution centers</li>
+              <li><i class="fa-solid fa-check"></i>60H average replenishment</li>
+              <li><i class="fa-solid fa-check"></i>6 markets served directly</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     5. LOGISTICS IN NUMBERS
+     ========================================================= -->
+<section class="logistics impact" id="logistics">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-chart-line"></i> Logistics In Numbers</div>
+      <h2>The network behind every shelf.</h2>
+    </div>
+
+    <div class="impact-grid">
+      <div class="impact-card" data-reveal>
+        <i class="fa-solid fa-earth-americas"></i>
+        <b data-count="42">0</b>
+        <span class="impact-label">Countries Served</span>
+        <p>Across five regions, every one on the same quality bar.</p>
+      </div>
+      <div class="impact-card" data-reveal>
+        <i class="fa-solid fa-warehouse"></i>
+        <b data-count="24">0</b>
+        <span class="impact-label">Regional Distribution Hubs</span>
+        <p>Owned and operated, not third-party leased.</p>
+      </div>
+      <div class="impact-card" data-reveal>
+        <i class="fa-solid fa-truck-fast"></i>
+        <b data-count="1850">0</b>
+        <span class="impact-label">Fleet Vehicles In Motion</span>
+        <p>Tracked in real time by our logistics control tower.</p>
+      </div>
+      <div class="impact-card" data-reveal>
+        <i class="fa-solid fa-plane"></i>
+        <b data-count="96">0</b>
+        <span class="impact-label">Ports &amp; Airports Served</span>
+        <p>Direct freight lanes into every region we operate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     6. RELIABILITY STANDARDS
+     ========================================================= -->
+<section class="standards quality" id="standards">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-shield-halved"></i> Reliability Standards</div>
+      <h2>Fast is nothing without consistent.</h2>
+    </div>
+
+    <div class="cert-grid">
+      <div class="cert-card" data-reveal><i class="fa-solid fa-lock"></i><h3>ISO 28000</h3><p>Supply chain security, plant-wide</p></div>
+      <div class="cert-card" data-reveal><i class="fa-solid fa-passport"></i><h3>AEO Certified</h3><p>Trusted trader customs clearance</p></div>
+      <div class="cert-card" data-reveal><i class="fa-solid fa-temperature-low"></i><h3>Cold Chain Certified</h3><p>Unbroken temperature control</p></div>
+      <div class="cert-card" data-reveal><i class="fa-solid fa-clipboard-check"></i><h3>GDP Certified</h3><p>Good Distribution Practice audited</p></div>
+      <div class="cert-card" data-reveal><i class="fa-solid fa-gauge-high"></i><h3>99.4% Fill Rate</h3><p>On-time, in-full, every quarter</p></div>
+      <div class="cert-card" data-reveal><i class="fa-solid fa-satellite-dish"></i><h3>24/7 Control Tower</h3><p>Every shipment tracked in real time</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     7. CTA / PARTNER
+     ========================================================= -->
+<section class="cta" id="login">
+  <div class="container">
+    <div data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-handshake"></i> Partner With Us</div>
+      <h2>Want Meridian on your shelves?</h2>
+      <p>Tell us your region and category mix — our distribution team will follow up with hub coverage, lead times and minimum order details.</p>
+    </div>
+    <form class="cta-form" data-reveal onsubmit="event.preventDefault(); this.reset(); this.querySelector('button').innerHTML='<i class=\'fa-solid fa-check\'></i> Sent';">
+      <input type="email" placeholder="you@company.com" required>
+      <button type="submit" class="btn btn-gold">Talk to Distribution</button>
+    </form>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER (identical to home)
+     ========================================================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="global.html" class="logo">
+  <img src="Assest/stackly-icon.webp" alt="Stackly" class="logo-mark">
+  Stackly
+</a>
+        <p>A fast moving consumer goods house building trusted food, personal care and home essentials since 1994.</p>
+        <div class="footer-social">
+          <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="404.html" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="404.html">About</a></li>
+          <li><a href="sustain.html">Sustainability</a></li>
+          <li><a href="career.html">Careers</a></li>
+          <li><a href="404.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="categories.html#families">Food &amp; Beverage</a></li>
+          <li><a href="categories.html#families">Personal Care</a></li>
+          <li><a href="categories.html#families">Home Care</a></li>
+          <li><a href="categories.html#families">Wellness</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="404.html">hello@meridiangoods.com</a></li>
+          <li><a href="404.html">+1 (800) 555-1234</a></li>
+          <li><a href="404.html">Distribution Hubs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Meridian Consumer Goods, Inc. All rights reserved.</span>
+      <span>Privacy Policy · Terms · Cookie Settings</span>
+    </div>
+  </div>
+</footer>
+
+<!-- =========================================================
+     JS — shared behaviour (header/menu/cursor/reveal) + page-specific
+     (counters, region tabs, network node/line micro-interactions)
+     ========================================================= -->
+<script>
+/* ---- header scroll state ---- */
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('is-scrolled', window.scrollY > 40);
+}, { passive: true });
+
+/* ---- hamburger / mobile menu ---- */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+function toggleMenu(open){
+  hamburger.classList.toggle('is-active', open);
+  mobileMenu.classList.toggle('is-open', open);
+  menuOverlay.classList.toggle('is-open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+hamburger.addEventListener('click', () => toggleMenu(!mobileMenu.classList.contains('is-open')));
+menuOverlay.addEventListener('click', () => toggleMenu(false));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+/* ---- IntersectionObserver scroll reveal ---- */
+const revealEls = document.querySelectorAll('[data-reveal]');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting){
+      entry.target.classList.add('is-visible');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+revealEls.forEach(el => io.observe(el));
+
+/* ---- animated counters (supports optional data-suffix, e.g. "H") ---- */
+const counters = document.querySelectorAll('[data-count]');
+const counterIO = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseInt(el.getAttribute('data-count'), 10);
+    const isPlain = el.hasAttribute('data-plain');
+    const suffix = el.getAttribute('data-suffix') || '';
+    const obj = { val: 0 };
+    gsap.to(obj, {
+      val: target,
+      duration: 1.8,
+      ease: 'power2.out',
+      onUpdate: () => { el.textContent = (isPlain ? Math.floor(obj.val) : Math.floor(obj.val).toLocaleString()) + suffix; },
+      onComplete: () => { el.textContent = (isPlain ? target : target.toLocaleString()) + suffix; }
+    });
+    counterIO.unobserve(el);
+  });
+}, { threshold: 0.6 });
+counters.forEach(c => counterIO.observe(c));
+
+try{ gsap.registerPlugin(ScrollTrigger); }catch(e){ console.warn('ScrollTrigger unavailable:', e); }
+
+/* ---- preloader (hard fallback so it can never get stuck) ---- */
+const preloader = document.getElementById('preloader');
+const preloaderFill = document.getElementById('preloaderFill');
+const preloaderPct = document.getElementById('preloaderPct');
+let heroPlayed = false;
+function clearPreloader(){
+  if (!preloader || preloader.dataset.done) return;
+  preloader.dataset.done = '1';
+  preloader.style.transition = 'transform 1s cubic-bezier(.22,.68,0,1), opacity .6s ease';
+  preloader.style.transform = 'translateY(-100%)';
+  setTimeout(() => { preloader.style.display = 'none'; }, 1050);
+  if (!heroPlayed){ heroPlayed = true; playHeroIntro(); }
+}
+setTimeout(clearPreloader, 2500);
+try{
+  const loadCounter = { v: 0 };
+  gsap.timeline({ onComplete: clearPreloader })
+    .to(loadCounter, {
+      v: 100, duration: 1.1, ease: 'power2.inOut', delay: .2,
+      onUpdate: () => {
+        const val = Math.floor(loadCounter.v);
+        if (preloaderFill) preloaderFill.style.width = val + '%';
+        if (preloaderPct) preloaderPct.textContent = val + '%';
+      }
+    });
+}catch(e){ clearPreloader(); }
+
+function playHeroIntro(){
+  try{
+    gsap.timeline({ defaults: { ease: 'power3.out' } })
+      .from('.global-hero-copy .eyebrow', { opacity: 0, y: 18, duration: .7 })
+      .from('.global-hero .split-title .word', { opacity: 0, y: '100%', duration: .9, stagger: .03 }, '-=.4')
+      .from('.global-hero-copy .lede', { opacity: 0, y: 20, duration: .8 }, '-=.55')
+      .from('.global-hero-copy .hero-cta .btn', { opacity: 0, y: 16, duration: .6, stagger: .12 }, '-=.5')
+      .from('.global-hero-copy .hero-stats > div', { opacity: 0, y: 16, duration: .6, stagger: .1 }, '-=.4')
+      .from('.global-hero-frame', { opacity: 0, scale: .94, duration: 1, ease: 'power2.out' }, '-=.9')
+      .from('.global-hero-visual .hero-tag', { opacity: 0, y: 16, duration: .6, stagger: .15 }, '-=.5');
+  }catch(e){ console.warn('Hero intro skipped:', e); }
+}
+
+/* ---- graceful fallback for any hotlinked photo that fails to load ---- */
+document.querySelectorAll('img').forEach(img => {
+  img.addEventListener('error', function handler(){
+    const wrap = img.parentElement;
+    if (!wrap || wrap.classList.contains('img-fallback')) return;
+    wrap.classList.add('img-fallback');
+    const note = document.createElement('div');
+    note.className = 'img-fallback-icon';
+    note.innerHTML = '<i class="fa-solid fa-image"></i><span>' + (img.alt || 'Meridian') + '</span>';
+    wrap.appendChild(note);
+  }, { once: true });
+});
+
+/* ---- custom cursor ---- */
+try{
+  const cursorDot = document.getElementById('cursorDot');
+  const cursorRing = document.getElementById('cursorRing');
+  const hasFinePointer = window.matchMedia('(pointer:fine)').matches;
+  if (hasFinePointer && cursorDot && cursorRing){
+    document.body.classList.add('has-custom-cursor');
+    window.addEventListener('mousemove', (e) => {
+      gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: .1 });
+      gsap.to(cursorRing, { x: e.clientX, y: e.clientY, duration: .5, ease: 'power3.out' });
+    });
+    document.querySelectorAll('a, button, .pillar-card, .impact-card, .cert-card, .network-node').forEach(el => {
+      el.addEventListener('mouseenter', () => cursorRing.classList.add('is-active'));
+      el.addEventListener('mouseleave', () => cursorRing.classList.remove('is-active'));
+    });
+  }
+}catch(e){ console.warn('Custom cursor skipped:', e); }
+
+/* ---- magnetic buttons ---- */
+try{
+  document.querySelectorAll('.btn, .btn-login').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const r = btn.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width/2;
+      const y = e.clientY - r.top - r.height/2;
+      gsap.to(btn, { x: x * .3, y: y * .45, duration: .4, ease: 'power2.out' });
+    });
+    btn.addEventListener('mouseleave', () => gsap.to(btn, { x: 0, y: 0, duration: .5, ease: 'elastic.out(1,0.4)' }));
+  });
+}catch(e){ console.warn('Magnetic buttons skipped:', e); }
+
+/* ---- 3D tilt on cards ---- */
+try{
+  document.querySelectorAll('.pillar-card, .impact-card, .cert-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - .5;
+      const py = (e.clientY - r.top) / r.height - .5;
+      gsap.to(card, { rotateY: px * 8, rotateX: py * -8, transformPerspective: 700, duration: .5, ease: 'power2.out' });
+    });
+    card.addEventListener('mouseleave', () => gsap.to(card, { rotateX: 0, rotateY: 0, duration: .6, ease: 'power3.out' }));
+  });
+}catch(e){ console.warn('Tilt cards skipped:', e); }
+
+/* ---- parallax hero image ---- */
+try{
+  gsap.to('.global-hero-frame img', {
+    yPercent: 10, ease: 'none',
+    scrollTrigger: { trigger: '.global-hero', start: 'top top', end: 'bottom top', scrub: .6 }
+  });
+}catch(e){ console.warn('Parallax skipped:', e); }
+
+/* ---- stagger emphasis for grid cards on scroll ---- */
+try{
+  ['.pillar-grid .pillar-card', '.impact-grid .impact-card', '.cert-grid .cert-card'].forEach(sel => {
+    ScrollTrigger.batch(sel, {
+      start: 'top 90%',
+      onEnter: (batch) => gsap.fromTo(batch, { y: 22 }, { y: 0, duration: .7, stagger: .1, ease: 'power3.out', overwrite: 'auto' })
+    });
+  });
+}catch(e){ console.warn('Batch stagger skipped:', e); }
+
+/* =========================================================
+   PAGE-SPECIFIC: region spotlight tab switcher
+   ========================================================= */
+const spotlightTabs = document.querySelectorAll('.spotlight-tab');
+const spotlightPanels = document.querySelectorAll('.spotlight-panel');
+spotlightTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    if (tab.classList.contains('is-active')) return;
+    const target = tab.getAttribute('data-target');
+
+    spotlightTabs.forEach(t => t.classList.remove('is-active'));
+    tab.classList.add('is-active');
+
+    spotlightPanels.forEach(panel => {
+      if (panel.getAttribute('data-panel') === target){
+        panel.classList.add('is-active');
+        gsap.fromTo(panel, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: .6, ease: 'power3.out' });
+      } else {
+        panel.classList.remove('is-active');
+      }
+    });
+  });
+});
+
+/* =========================================================
+   PAGE-SPECIFIC: live network map entrance
+   — nodes pop in with a staggered "coming online" feel and
+   the connecting lines fade/draw in once the map is visible.
+   ========================================================= */
+try{
+  ScrollTrigger.create({
+    trigger: '.network-map',
+    start: 'top 82%',
+    once: true,
+    onEnter: () => {
+      gsap.fromTo('.network-node', { opacity: 0, scale: .4 }, { opacity: 1, scale: 1, duration: .6, stagger: .12, ease: 'back.out(2.2)' });
+      gsap.fromTo('.net-path', { opacity: 0 }, { opacity: .55, duration: 1.2, stagger: .1, ease: 'power2.out' });
+      gsap.fromTo('.network-chip', { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .7, stagger: .12, ease: 'power3.out', delay: .3 });
+    }
+  });
+}catch(e){
+  document.querySelectorAll('.network-node, .net-path, .network-chip').forEach(el => { el.style.opacity = '1'; });
+}
+</script>
+</body>
+</html>

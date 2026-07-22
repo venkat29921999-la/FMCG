@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Categories — Meridian</title>
+<meta name="description" content="Explore every Meridian category — Food & Beverage, Personal Care, Home Care, Wellness and Beverages — built to one standard of craft.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- =========================================================
+     PRELOADER
+     ========================================================= -->
+<div class="preloader" id="preloader">
+  <div class="preloader-mark"><span class="logo"></span><img src="Assest/stackly-icon.webp" alt="Stackly" class="logo-mark">Stackly</div>
+  <div class="preloader-bar"><span id="preloaderFill"></span></div>
+  <div class="preloader-pct" id="preloaderPct">0%</div>
+</div>
+
+<!-- custom cursor (desktop only, see JS) -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- =========================================================
+     HEADER (identical to home)
+     ========================================================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav-wrap">
+    <a href="index.html" class="logo">
+  <img src="Assest/stackly-icon.webp" alt="Stackly" class="logo-mark">
+  Stackly
+</a>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="categories.html" class="active">Categories</a>
+      <a href="sustain.html">Sustainability</a>
+      <a href="global.html">Global Reach</a>
+      <a href="career.html">Careers</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="login.html" class="btn-login"><i class="fa-solid fa-user"></i> Login</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="categories.html">Categories</a>
+  <a href="sustain.html">Sustainability</a>
+  <a href="global.html">Global Reach</a>
+  <a href="career.html">Careers</a>
+  <a href="login.html" class="btn btn-gold"><i class="fa-solid fa-user"></i> Login</a>
+</nav>
+
+<!-- =========================================================
+     1. CATEGORY HERO
+     ========================================================= -->
+<section class="cat-hero" id="top">
+  <div class="container">
+    <div class="breadcrumb" data-reveal>
+      <a href="index.html#home">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>Categories</span>
+    </div>
+
+    <div class="cat-hero-grid">
+      <div class="cat-hero-copy">
+        <div class="eyebrow"><i class="fa-solid fa-layer-group"></i> Full Catalogue</div>
+        <h1 class="split-title">
+          <span class="line"><span class="word">Every</span> <span class="word">category,</span></span>
+          <span class="line"><span class="word">one</span> <span class="word">standard</span> <span class="word">of</span> <span class="word">craft.</span></span>
+        </h1>
+        <p class="lede">Five categories, 180 active SKUs, one quality bar. Filter the range below or dive into a category spotlight to see how each one is sourced, formulated and shipped.</p>
+        <div class="hero-cta">
+          <a href="#families" class="btn btn-gold">Browse the Range <i class="fa-solid fa-arrow-down"></i></a>
+          <a href="#spotlight" class="btn btn-line">Category Deep-Dive</a>
+        </div>
+      </div>
+
+      <div class="cat-hero-visual">
+        <div class="hero-frame cat-hero-frame">
+          <img src="Assest/coca_cola_building.webp" alt="Meridian production facility supporting every category">
+          <span class="scan-line"></span>
+        </div>
+        <div class="hero-tag tag-3">
+          <i class="fa-solid fa-cubes"></i>
+          <span>5 Categories</span>
+        </div>
+        <div class="hero-tag tag-4">
+          <i class="fa-solid fa-barcode"></i>
+          <span>180 Active SKUs</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     2. FILTERABLE PRODUCT FAMILIES
+     ========================================================= -->
+<section class="families" id="families">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-sliders"></i> Browse By Category</div>
+      <h2>Ten product families, filtered your way.</h2>
+    </div>
+
+    <div class="filter-bar" data-reveal>
+      <button class="filter-chip is-active" data-filter="all">All</button>
+      <button class="filter-chip" data-filter="food">Food &amp; Beverage</button>
+      <button class="filter-chip" data-filter="personal">Personal Care</button>
+      <button class="filter-chip" data-filter="home">Home Care</button>
+      <button class="filter-chip" data-filter="wellness">Wellness</button>
+      <button class="filter-chip" data-filter="beverage">Beverages</button>
+    </div>
+
+    <div class="family-grid" id="familyGrid">
+      <div class="family-card" data-cat="food" data-reveal>
+        <div class="family-media"><img src="Assest/milk_shelf.webp" alt="Organic dairy range"></div>
+        <span class="sku">SKU · 01</span><h3>Organic Dairy</h3><p>Grass-fed, single-origin dairy</p>
+      </div>
+      <div class="family-card" data-cat="food" data-reveal>
+        <div class="family-media"><img src="Assest/grocery_shelf.webp" alt="Pantry and snacking range"></div>
+        <span class="sku">SKU · 02</span><h3>Pantry &amp; Snacking</h3><p>Everyday staples, shelf-stable</p>
+      </div>
+      <div class="family-card" data-cat="personal" data-reveal>
+        <div class="family-media"><img src="Assest/spa_perfume.webp" alt="Fragrance collection"></div>
+        <span class="sku">SKU · 03</span><h3>Fragrance Collection</h3><p>Botanical eau de parfum</p>
+      </div>
+      <div class="family-card" data-cat="personal" data-reveal>
+        <div class="family-media"><img src="Assest/spa_products.webp" alt="Skin and hair care range"></div>
+        <span class="sku">SKU · 04</span><h3>Skin &amp; Hair Care</h3><p>Dermatologically tested</p>
+      </div>
+      <div class="family-card" data-cat="home" data-reveal>
+        <div class="family-media"><img src="Assest/laundry_detergent.webp" alt="Laundry care range"></div>
+        <span class="sku">SKU · 05</span><h3>Laundry Care</h3><p>Concentrate, greywater safe</p>
+      </div>
+      <div class="family-card" data-cat="home" data-reveal>
+        <div class="family-media"><img src="Assest/detergent_granules.webp" alt="Surface and dish care range"></div>
+        <span class="sku">SKU · 06</span><h3>Surface &amp; Dish Care</h3><p>Grease-cutting, biodegradable</p>
+      </div>
+      <div class="family-card" data-cat="wellness" data-reveal>
+        <div class="family-media"><img src="Assest/multivitamins.webp" alt="Daily vitamins range"></div>
+        <span class="sku">SKU · 07</span><h3>Daily Vitamins</h3><p>Family multivitamin sets</p>
+      </div>
+      <div class="family-card" data-cat="wellness" data-reveal>
+        <div class="family-media"><img src="Assest/grocery_shelf.webp" alt="Active supplements range"></div>
+        <span class="sku">SKU · 08</span><h3>Active Supplements</h3><p>Electrolyte &amp; recovery blends</p>
+      </div>
+      <div class="family-card" data-cat="beverage" data-reveal>
+        <div class="family-media"><img src="Assest/bottling_line.webp" alt="Sparkling water range"></div>
+        <span class="sku">SKU · 09</span><h3>Sparkling Water</h3><p>Naturally carbonated spring</p>
+      </div>
+      <div class="family-card" data-cat="beverage" data-reveal>
+        <div class="family-media"><img src="Assest/bottling_machine.webp" alt="Botanical tonic range"></div>
+        <span class="sku">SKU · 10</span><h3>Botanical Tonics</h3><p>Low-sugar, adaptogen-infused</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     3. CATEGORY SPOTLIGHT (interactive tabs)
+     ========================================================= -->
+<section class="spotlight" id="spotlight">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-magnifying-glass"></i> Category Deep-Dive</div>
+      <h2>Pick a category. See how it's built.</h2>
+    </div>
+
+    <div class="spotlight-grid">
+      <div class="spotlight-tabs" data-reveal="left">
+        <button class="spotlight-tab is-active" data-target="0"><span class="sk-num">01</span>Food &amp; Beverage</button>
+        <button class="spotlight-tab" data-target="1"><span class="sk-num">02</span>Personal Care</button>
+        <button class="spotlight-tab" data-target="2"><span class="sk-num">03</span>Home Care</button>
+        <button class="spotlight-tab" data-target="3"><span class="sk-num">04</span>Wellness</button>
+        <button class="spotlight-tab" data-target="4"><span class="sk-num">05</span>Beverages</button>
+      </div>
+
+      <div class="spotlight-panels" data-reveal="right">
+        <div class="spotlight-panel is-active" data-panel="0">
+          <div class="spotlight-media"><img src="Assest/milk_shelf.webp" alt="Food and beverage category"></div>
+          <div class="spotlight-copy">
+            <h3>Food &amp; Beverage</h3>
+            <p>From single-origin dairy to pantry staples, every batch is traced to a certified farm partner and tested for consistency before it ever reaches a shelf.</p>
+            <ul class="spotlight-features">
+              <li><i class="fa-solid fa-check"></i>62 active SKUs</li>
+              <li><i class="fa-solid fa-check"></i>Farm-to-shelf traceability</li>
+              <li><i class="fa-solid fa-check"></i>Cold-chain certified logistics</li>
+            </ul>
+          </div>
+        </div>
+        <div class="spotlight-panel" data-panel="1">
+          <div class="spotlight-media"><img src="Assest/spa_perfume.webp" alt="Personal care category"></div>
+          <div class="spotlight-copy">
+            <h3>Personal Care</h3>
+            <p>Fragrance, skin and hair formulations built on sustainably sourced botanicals, dermatologically tested before any SKU is approved for release.</p>
+            <ul class="spotlight-features">
+              <li><i class="fa-solid fa-check"></i>34 active SKUs</li>
+              <li><i class="fa-solid fa-check"></i>Dermatologically tested</li>
+              <li><i class="fa-solid fa-check"></i>Cruelty-free formulation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="spotlight-panel" data-panel="2">
+          <div class="spotlight-media"><img src="Assest/detergent_granules.webp" alt="Home care category"></div>
+          <div class="spotlight-copy">
+            <h3>Home Care</h3>
+            <p>Laundry and surface formulations engineered for performance first, with concentrate dosing that cuts packaging and transport weight.</p>
+            <ul class="spotlight-features">
+              <li><i class="fa-solid fa-check"></i>28 active SKUs</li>
+              <li><i class="fa-solid fa-check"></i>Greywater-safe formulas</li>
+              <li><i class="fa-solid fa-check"></i>Concentrate dosing</li>
+            </ul>
+          </div>
+        </div>
+        <div class="spotlight-panel" data-panel="3">
+          <div class="spotlight-media"><img src="Assest/grocery_shelf.webp" alt="Wellness category"></div>
+          <div class="spotlight-copy">
+            <h3>Health &amp; Wellness</h3>
+            <p>Everyday vitamins and supplements formulated with third-party tested actives, built for daily routines rather than trend cycles.</p>
+            <ul class="spotlight-features">
+              <li><i class="fa-solid fa-check"></i>21 active SKUs</li>
+              <li><i class="fa-solid fa-check"></i>Third-party lab tested</li>
+              <li><i class="fa-solid fa-check"></i>Non-GMO ingredients</li>
+            </ul>
+          </div>
+        </div>
+        <div class="spotlight-panel" data-panel="4">
+          <div class="spotlight-media"><img src="Assest/bottling_machine.webp" alt="Beverages category"></div>
+          <div class="spotlight-copy">
+            <h3>Beverages</h3>
+            <p>Still, sparkling and functional drinks bottled across our own lines, with recipes tuned for lower sugar without losing flavour.</p>
+            <ul class="spotlight-features">
+              <li><i class="fa-solid fa-check"></i>35 active SKUs</li>
+              <li><i class="fa-solid fa-check"></i>In-house bottling lines</li>
+              <li><i class="fa-solid fa-check"></i>Recyclable glass &amp; cans</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     4. FEATURED PRODUCTS
+     ========================================================= -->
+<section class="products" id="products">
+  <div class="container">
+    <div class="products-head">
+      <div class="section-head" style="margin-bottom:0" data-reveal>
+        <div class="eyebrow"><i class="fa-solid fa-star"></i> Featured</div>
+        <h2>Top performers across every category.</h2>
+      </div>
+      <a href="#families" class="btn btn-line">Back to Range <i class="fa-solid fa-arrow-up"></i></a>
+    </div>
+
+    <div class="product-grid">
+      <div class="product-card" data-reveal>
+        <div class="product-media"><img src="Assest/bottling_line.webp" alt="Sparkling spring water"></div>
+        <div class="product-body">
+          <span class="sku">FB-014 · Beverage</span>
+          <h3>Sparkling Spring Water</h3>
+          <p>Naturally carbonated, sourced from protected alpine springs.</p>
+          <div class="product-foot"><span>500ml · 12 pack</span><a href="404.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+        </div>
+      </div>
+      <div class="product-card" data-reveal>
+        <div class="product-media"><img src="Assest/spa_perfume.webp" alt="Fragrance collection"></div>
+        <div class="product-body">
+          <span class="sku">PC-027 · Personal Care</span>
+          <h3>Eau de Parfum Collection</h3>
+          <p>Six signature scents built on sustainably sourced botanicals.</p>
+          <div class="product-foot"><span>50ml · glass</span><a href="404.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+        </div>
+      </div>
+      <div class="product-card" data-reveal>
+        <div class="product-media"><img src="Assest/detergent_granules.webp" alt="Laundry pearls"></div>
+        <div class="product-body">
+          <span class="sku">HC-009 · Home Care</span>
+          <h3>Concentrate Laundry Pearls</h3>
+          <p>40-wash concentrate formula, greywater safe.</p>
+          <div class="product-foot"><span>1.2kg · pouch</span><a href="404.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     5. QUALITY STANDARDS / CERTIFICATIONS
+     ========================================================= -->
+<section class="quality" id="quality">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-shield-halved"></i> Quality Standards</div>
+      <h2>Every category, held to the same bar.</h2>
+    </div>
+
+    <div class="cert-grid">
+      <div class="cert-card" data-reveal><i class="fa-solid fa-leaf"></i><h3>Certified Organic</h3><p>Where the category calls for it</p></div>
+      <div class="cert-card" data-reveal><i class="fa-solid fa-industry"></i><h3>ISO 22000 / GMP</h3><p>Audited plant-wide</p></div>
+      <div class="cert-card" data-reveal><i class="fa-solid fa-paw"></i><h3>Cruelty-Free</h3><p>Across personal care</p></div>
+      <div class="cert-card" data-reveal><i class="fa-solid fa-recycle"></i><h3>Recyclable Packaging</h3><p>90% of SKUs by weight</p></div>
+      <div class="cert-card" data-reveal><i class="fa-solid fa-dna"></i><h3>Non-GMO</h3><p>Food &amp; wellness lines</p></div>
+      <div class="cert-card" data-reveal><i class="fa-solid fa-flask-vial"></i><h3>Lab Verified</h3><p>Every batch, every plant</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     6. CATEGORY COMPARISON
+     ========================================================= -->
+<section class="compare" id="compare">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-chart-simple"></i> By The Numbers</div>
+      <h2>Where our 180 SKUs live.</h2>
+      <p>A quick view of how the catalogue breaks down by category.</p>
+    </div>
+
+    <div class="compare-grid" data-reveal>
+      <div class="compare-row">
+        <span class="compare-label">Food &amp; Beverage</span>
+        <div class="compare-track"><div class="compare-bar" data-width="62" style="--pct:34.4%"></div></div>
+        <span class="compare-value">62</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">Beverages</span>
+        <div class="compare-track"><div class="compare-bar" data-width="35" style="--pct:19.4%"></div></div>
+        <span class="compare-value">35</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">Personal Care</span>
+        <div class="compare-track"><div class="compare-bar" data-width="34" style="--pct:18.9%"></div></div>
+        <span class="compare-value">34</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">Home Care</span>
+        <div class="compare-track"><div class="compare-bar" data-width="28" style="--pct:15.6%"></div></div>
+        <span class="compare-value">28</span>
+      </div>
+      <div class="compare-row">
+        <span class="compare-label">Wellness</span>
+        <div class="compare-track"><div class="compare-bar" data-width="21" style="--pct:11.7%"></div></div>
+        <span class="compare-value">21</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     7. CTA / NEWSLETTER
+     ========================================================= -->
+<section class="cta" id="login">
+  <div class="container">
+    <div data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-envelope"></i> Stay Stocked</div>
+      <h2>Get notified when your category restocks.</h2>
+      <p>Pick the categories you buy and we'll only email you when something new or back in stock matters to you.</p>
+    </div>
+    <form class="cta-form" data-reveal onsubmit="event.preventDefault(); this.reset(); this.querySelector('button').innerHTML='<i class=\'fa-solid fa-check\'></i> Subscribed';">
+      <input type="email" placeholder="you@company.com" required>
+      <button type="submit" class="btn btn-gold">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER (identical to home)
+     ========================================================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="categories.html" class="logo">
+  <img src="Assest/stackly-icon.webp" alt="Stackly" class="logo-mark">
+  Stackly
+</a>
+        <p>A fast moving consumer goods house building trusted food, personal care and home essentials since 1994.</p>
+        <div class="footer-social">
+          <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="404.html" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="404.html">About</a></li>
+          <li><a href="sustain.html">Sustainability</a></li>
+          <li><a href="career.html">Careers</a></li>
+          <li><a href="404.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="categories.html#families">Food &amp; Beverage</a></li>
+          <li><a href="categories.html#families">Personal Care</a></li>
+          <li><a href="categories.html#families">Home Care</a></li>
+          <li><a href="categories.html#families">Wellness</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="404.html">hello@meridiangoods.com</a></li>
+          <li><a href="404.html">+1 (800) 555-1234</a></li>
+          <li><a href="404.html">Distribution Hubs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Meridian Consumer Goods, Inc. All rights reserved.</span>
+      <span>Privacy Policy · Terms · Cookie Settings</span>
+    </div>
+  </div>
+</footer>
+
+<!-- =========================================================
+     JS — shared behaviour (header/menu/cursor/reveal) + page-specific
+     (filter grid, spotlight tabs, animated compare bars)
+     ========================================================= -->
+<script>
+/* ---- header scroll state ---- */
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('is-scrolled', window.scrollY > 40);
+}, { passive: true });
+
+/* ---- hamburger / mobile menu ---- */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+function toggleMenu(open){
+  hamburger.classList.toggle('is-active', open);
+  mobileMenu.classList.toggle('is-open', open);
+  menuOverlay.classList.toggle('is-open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+hamburger.addEventListener('click', () => toggleMenu(!mobileMenu.classList.contains('is-open')));
+menuOverlay.addEventListener('click', () => toggleMenu(false));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+/* ---- IntersectionObserver scroll reveal ---- */
+const revealEls = document.querySelectorAll('[data-reveal]');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting){
+      entry.target.classList.add('is-visible');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+revealEls.forEach(el => io.observe(el));
+
+/* ---- preloader (hard fallback so it can never get stuck) ---- */
+const preloader = document.getElementById('preloader');
+const preloaderFill = document.getElementById('preloaderFill');
+const preloaderPct = document.getElementById('preloaderPct');
+let heroPlayed = false;
+function clearPreloader(){
+  if (!preloader || preloader.dataset.done) return;
+  preloader.dataset.done = '1';
+  preloader.style.transition = 'transform 1s cubic-bezier(.22,.68,0,1), opacity .6s ease';
+  preloader.style.transform = 'translateY(-100%)';
+  setTimeout(() => { preloader.style.display = 'none'; }, 1050);
+  if (!heroPlayed){ heroPlayed = true; playHeroIntro(); }
+}
+setTimeout(clearPreloader, 2500);
+try{
+  const loadCounter = { v: 0 };
+  gsap.timeline({ onComplete: clearPreloader })
+    .to(loadCounter, {
+      v: 100, duration: 1.1, ease: 'power2.inOut', delay: .2,
+      onUpdate: () => {
+        const val = Math.floor(loadCounter.v);
+        if (preloaderFill) preloaderFill.style.width = val + '%';
+        if (preloaderPct) preloaderPct.textContent = val + '%';
+      }
+    });
+}catch(e){ clearPreloader(); }
+
+function playHeroIntro(){
+  try{
+    gsap.timeline({ defaults: { ease: 'power3.out' } })
+      .from('.cat-hero-copy .eyebrow', { opacity: 0, y: 18, duration: .7 })
+      .from('.cat-hero .split-title .word', { opacity: 0, y: '100%', duration: .9, stagger: .03 }, '-=.4')
+      .from('.cat-hero-copy .lede', { opacity: 0, y: 20, duration: .8 }, '-=.55')
+      .from('.cat-hero-copy .hero-cta .btn', { opacity: 0, y: 16, duration: .6, stagger: .12 }, '-=.5')
+      .from('.cat-hero-frame', { opacity: 0, scale: .94, duration: 1, ease: 'power2.out' }, '-=.8')
+      .from('.cat-hero-visual .hero-tag', { opacity: 0, y: 16, duration: .6, stagger: .15 }, '-=.5');
+  }catch(e){ console.warn('Hero intro skipped:', e); }
+}
+
+/* ---- graceful fallback for any hotlinked photo that fails to load ---- */
+document.querySelectorAll('img').forEach(img => {
+  img.addEventListener('error', function handler(){
+    const wrap = img.parentElement;
+    if (!wrap || wrap.classList.contains('img-fallback')) return;
+    wrap.classList.add('img-fallback');
+    const note = document.createElement('div');
+    note.className = 'img-fallback-icon';
+    note.innerHTML = '<i class="fa-solid fa-image"></i><span>' + (img.alt || 'Meridian') + '</span>';
+    wrap.appendChild(note);
+  }, { once: true });
+});
+
+try{ gsap.registerPlugin(ScrollTrigger); }catch(e){ console.warn('ScrollTrigger unavailable:', e); }
+
+/* ---- custom cursor ---- */
+try{
+  const cursorDot = document.getElementById('cursorDot');
+  const cursorRing = document.getElementById('cursorRing');
+  const hasFinePointer = window.matchMedia('(pointer:fine)').matches;
+  if (hasFinePointer && cursorDot && cursorRing){
+    document.body.classList.add('has-custom-cursor');
+    window.addEventListener('mousemove', (e) => {
+      gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: .1 });
+      gsap.to(cursorRing, { x: e.clientX, y: e.clientY, duration: .5, ease: 'power3.out' });
+    });
+    document.querySelectorAll('a, button, .product-card, .family-card, .cert-card').forEach(el => {
+      el.addEventListener('mouseenter', () => cursorRing.classList.add('is-active'));
+      el.addEventListener('mouseleave', () => cursorRing.classList.remove('is-active'));
+    });
+  }
+}catch(e){ console.warn('Custom cursor skipped:', e); }
+
+/* ---- magnetic buttons ---- */
+try{
+  document.querySelectorAll('.btn, .btn-login, .filter-chip').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const r = btn.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width/2;
+      const y = e.clientY - r.top - r.height/2;
+      gsap.to(btn, { x: x * .25, y: y * .4, duration: .4, ease: 'power2.out' });
+    });
+    btn.addEventListener('mouseleave', () => gsap.to(btn, { x: 0, y: 0, duration: .5, ease: 'elastic.out(1,0.4)' }));
+  });
+}catch(e){ console.warn('Magnetic buttons skipped:', e); }
+
+/* ---- 3D tilt on cards ---- */
+try{
+  document.querySelectorAll('.product-card, .family-card, .cert-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - .5;
+      const py = (e.clientY - r.top) / r.height - .5;
+      gsap.to(card, { rotateY: px * 8, rotateX: py * -8, transformPerspective: 700, duration: .5, ease: 'power2.out' });
+    });
+    card.addEventListener('mouseleave', () => gsap.to(card, { rotateX: 0, rotateY: 0, duration: .6, ease: 'power3.out' }));
+  });
+}catch(e){ console.warn('Tilt cards skipped:', e); }
+
+/* ---- parallax on hero image ---- */
+try{
+  gsap.to('.cat-hero-frame img', {
+    yPercent: 10, ease: 'none',
+    scrollTrigger: { trigger: '.cat-hero', start: 'top top', end: 'bottom top', scrub: .6 }
+  });
+}catch(e){ console.warn('Parallax skipped:', e); }
+
+/* ---- stagger emphasis for grid cards on scroll ---- */
+try{
+  ['.family-grid .family-card', '.product-grid .product-card', '.cert-grid .cert-card'].forEach(sel => {
+    ScrollTrigger.batch(sel, {
+      start: 'top 90%',
+      onEnter: (batch) => gsap.fromTo(batch, { y: 22 }, { y: 0, duration: .7, stagger: .1, ease: 'power3.out', overwrite: 'auto' })
+    });
+  });
+}catch(e){ console.warn('Batch stagger skipped:', e); }
+
+/* =========================================================
+   PAGE-SPECIFIC: category filter grid
+   ========================================================= */
+const filterChips = document.querySelectorAll('.filter-chip');
+const familyCards = document.querySelectorAll('.family-card');
+filterChips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    filterChips.forEach(c => c.classList.remove('is-active'));
+    chip.classList.add('is-active');
+    const filter = chip.getAttribute('data-filter');
+
+    familyCards.forEach(card => {
+      const match = filter === 'all' || card.getAttribute('data-cat') === filter;
+      if (match){
+        card.style.display = '';
+        gsap.fromTo(card, { opacity: 0, y: 16, scale: .96 }, { opacity: 1, y: 0, scale: 1, duration: .5, ease: 'power2.out' });
+      } else {
+        gsap.to(card, {
+          opacity: 0, y: -10, scale: .96, duration: .3, ease: 'power2.in',
+          onComplete: () => { card.style.display = 'none'; }
+        });
+      }
+    });
+  });
+});
+
+/* =========================================================
+   PAGE-SPECIFIC: spotlight tab switcher
+   ========================================================= */
+const spotlightTabs = document.querySelectorAll('.spotlight-tab');
+const spotlightPanels = document.querySelectorAll('.spotlight-panel');
+spotlightTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    if (tab.classList.contains('is-active')) return;
+    const target = tab.getAttribute('data-target');
+
+    spotlightTabs.forEach(t => t.classList.remove('is-active'));
+    tab.classList.add('is-active');
+
+    spotlightPanels.forEach(panel => {
+      if (panel.getAttribute('data-panel') === target){
+        panel.classList.add('is-active');
+        gsap.fromTo(panel, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: .6, ease: 'power3.out' });
+      } else {
+        panel.classList.remove('is-active');
+      }
+    });
+  });
+});
+
+/* =========================================================
+   PAGE-SPECIFIC: animated comparison bars
+   ========================================================= */
+try{
+  document.querySelectorAll('.compare-bar').forEach(bar => {
+    ScrollTrigger.create({
+      trigger: bar,
+      start: 'top 92%',
+      once: true,
+      onEnter: () => gsap.to(bar, { width: 'var(--pct)', duration: 1.3, ease: 'power3.out' })
+    });
+  });
+}catch(e){
+  document.querySelectorAll('.compare-bar').forEach(bar => { bar.style.width = 'var(--pct)'; });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers — Meridian</title>
+<meta name="description" content="Careers at Meridian — 6,200 people across formulation, plant operations, distribution and corporate roles in 42 countries. See open roles and life at Meridian.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- =========================================================
+     PRELOADER
+     ========================================================= -->
+<div class="preloader" id="preloader">
+  <div class="preloader-mark"><span class="logo"></span><img src="Assest/stackly-icon.webp" alt="Stackly" class="logo-mark">Stackly</div>
+  <div class="preloader-bar"><span id="preloaderFill"></span></div>
+  <div class="preloader-pct" id="preloaderPct">0%</div>
+</div>
+
+<!-- custom cursor (desktop only, see JS) -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- =========================================================
+     HEADER (identical to home)
+     ========================================================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav-wrap">
+    <a href="index.html" class="logo">
+  <img src="Assest/stackly-icon.webp" alt="Stackly" class="logo-mark">
+  Stackly
+</a>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="sustain.html">Sustainability</a>
+      <a href="global.html">Global Reach</a>
+      <a href="career.html" class="active">Careers</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="login.html" class="btn-login"><i class="fa-solid fa-user"></i> Login</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="categories.html">Categories</a>
+  <a href="sustain.html">Sustainability</a>
+  <a href="global.html">Global Reach</a>
+  <a href="career.html">Careers</a>
+  <a href="login.html" class="btn btn-gold"><i class="fa-solid fa-user"></i> Login</a>
+</nav>
+
+<!-- =========================================================
+     1. CAREERS HERO
+     ========================================================= -->
+<section class="careers-hero" id="top">
+  <div class="container">
+    <div class="breadcrumb" data-reveal>
+      <a href="index.html#home">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>Careers</span>
+    </div>
+
+    <div class="careers-hero-grid">
+      <div class="careers-hero-copy">
+        <div class="eyebrow"><i class="fa-solid fa-people-group"></i> Careers at Meridian</div>
+        <h1 class="split-title">
+          <span class="line"><span class="word">Build</span> <span class="word">what</span> <span class="word">fills</span></span>
+          <span class="line"><span class="word">the</span> <span class="word">shelf,</span> <span class="word">together.</span></span>
+        </h1>
+        <p class="lede">6,200 people across formulation labs, plant floors, distribution hubs and corporate teams in 42 countries — all held to the same standard we put on every SKU.</p>
+        <div class="hero-cta">
+          <a href="#roles" class="btn btn-gold">See Open Roles <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#departments" class="btn btn-line">Life at Meridian</a>
+        </div>
+        <div class="hero-stats">
+          <div><b data-count="6200">0</b><span>People Worldwide</span></div>
+          <div><b data-count="47">0</b><span>Open Roles</span></div>
+          <div><b data-count="42">0</b><span>Countries</span></div>
+        </div>
+      </div>
+
+      <div class="careers-hero-visual">
+        <div class="hero-frame careers-hero-frame">
+          <img src="Assest/microscope_lab.webp" alt="Meridian team on the production floor">
+          <span class="scan-line"></span>
+        </div>
+        <div class="hero-tag tag-9">
+          <i class="fa-solid fa-bolt"></i>
+          <span>Hiring Now</span>
+        </div>
+        <div class="hero-tag tag-10">
+          <i class="fa-solid fa-industry"></i>
+          <span>11 Plants Worldwide</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     2. WHY MERIDIAN
+     ========================================================= -->
+<section class="pillars" id="why">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-star"></i> Why Meridian</div>
+      <h2>Five reasons people stay.</h2>
+    </div>
+
+    <div class="pillar-grid">
+      <div class="pillar-card" data-reveal>
+        <img src="Assest/coca_cola_building.webp" alt="Ownership and growth at Meridian">
+        <div class="pillar-info">
+          <i class="fa-solid fa-arrow-trend-up"></i>
+          <span class="sku">WHY · 01</span>
+          <h3>Ownership &amp; Growth</h3>
+          <p>68% of leadership roles are filled internally</p>
+        </div>
+      </div>
+      <div class="pillar-card" data-reveal>
+        <img src="Assest/container_ship_view.webp" alt="Global mobility at Meridian">
+        <div class="pillar-info">
+          <i class="fa-solid fa-earth-americas"></i>
+          <span class="sku">WHY · 02</span>
+          <h3>Global Mobility</h3>
+          <p>Transfer across 24 hubs in 42 countries</p>
+        </div>
+      </div>
+      <div class="pillar-card" data-reveal>
+        <img src="Assest/bottling_line.webp" alt="Formulation-first culture at Meridian">
+        <div class="pillar-info">
+          <i class="fa-solid fa-flask"></i>
+          <span class="sku">WHY · 03</span>
+          <h3>Formulation-First Culture</h3>
+          <p>Labs run parallel to the plant floor, not behind it</p>
+        </div>
+      </div>
+      <div class="pillar-card" data-reveal>
+        <img src="Assest/solar_panels.webp" alt="Wellbeing and balance at Meridian">
+        <div class="pillar-info">
+          <i class="fa-solid fa-heart-pulse"></i>
+          <span class="sku">WHY · 04</span>
+          <h3>Wellbeing &amp; Balance</h3>
+          <p>20 weeks parental leave, everywhere we operate</p>
+        </div>
+      </div>
+      <div class="pillar-card" data-reveal>
+        <img src="Assest/forklift_loading.webp" alt="Impact at scale at Meridian">
+        <div class="pillar-info">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span class="sku">WHY · 05</span>
+          <h3>Impact at Scale</h3>
+          <p>Your work reaches shelves in 42 countries</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     3. OPEN ROLES (filterable, animated job list)
+     ========================================================= -->
+<section class="roles" id="roles">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-briefcase"></i> Open Roles</div>
+      <h2><b data-count="47">0</b> roles open across five departments.</h2>
+    </div>
+
+    <div class="filter-bar" data-reveal>
+      <button class="filter-chip is-active" data-filter="all">All <span class="roles-count">(47)</span></button>
+      <button class="filter-chip" data-filter="formulation">Formulation Science <span class="roles-count">(9)</span></button>
+      <button class="filter-chip" data-filter="plant">Plant Operations <span class="roles-count">(14)</span></button>
+      <button class="filter-chip" data-filter="distribution">Distribution &amp; Logistics <span class="roles-count">(11)</span></button>
+      <button class="filter-chip" data-filter="packaging">Packaging Engineering <span class="roles-count">(6)</span></button>
+      <button class="filter-chip" data-filter="corporate">Corporate &amp; Commercial <span class="roles-count">(7)</span></button>
+    </div>
+
+    <div class="job-list" id="jobList">
+      <div class="job-row" data-dept="formulation" data-reveal>
+        <div class="job-icon"><i class="fa-solid fa-flask"></i></div>
+        <div class="job-info">
+          <span class="job-dept">Formulation Science</span>
+          <h3>Formulation Scientist — Personal Care</h3>
+        </div>
+        <div class="job-meta"><span><i class="fa-solid fa-location-dot"></i>Amsterdam, NL</span><span><i class="fa-solid fa-clock"></i>Full-time</span></div>
+        <a href="404.html"><div class="job-arrow"><i class="fa-solid fa-arrow-right"></i></div></a>
+      </div>
+      <div class="job-row" data-dept="formulation" data-reveal>
+        <div class="job-icon"><i class="fa-solid fa-flask"></i></div>
+        <div class="job-info">
+          <span class="job-dept">Formulation Science</span>
+          <h3>Flavor &amp; Sensory Scientist</h3>
+        </div>
+        <div class="job-meta"><span><i class="fa-solid fa-location-dot"></i>Chicago, USA</span><span><i class="fa-solid fa-clock"></i>Full-time</span></div>
+       <a href="404.html"><div class="job-arrow"><i class="fa-solid fa-arrow-right"></i></div></a>
+      </div>
+      <div class="job-row" data-dept="plant" data-reveal>
+        <div class="job-icon"><i class="fa-solid fa-industry"></i></div>
+        <div class="job-info">
+          <span class="job-dept">Plant Operations</span>
+          <h3>Plant Shift Supervisor — Home Care</h3>
+        </div>
+        <div class="job-meta"><span><i class="fa-solid fa-location-dot"></i>Penang, MY</span><span><i class="fa-solid fa-clock"></i>Full-time</span></div>
+        <a href="404.html"><div class="job-arrow"><i class="fa-solid fa-arrow-right"></i></div></a>
+      </div>
+      <div class="job-row" data-dept="plant" data-reveal>
+        <div class="job-icon"><i class="fa-solid fa-industry"></i></div>
+        <div class="job-info">
+          <span class="job-dept">Plant Operations</span>
+          <h3>Production Line Technician — Beverages</h3>
+        </div>
+        <div class="job-meta"><span><i class="fa-solid fa-location-dot"></i>Rotterdam, NL</span><span><i class="fa-solid fa-clock"></i>Full-time</span></div>
+        <a href="404.html"><div class="job-arrow"><i class="fa-solid fa-arrow-right"></i></div></a>
+      </div>
+      <div class="job-row" data-dept="distribution" data-reveal>
+        <div class="job-icon"><i class="fa-solid fa-truck-fast"></i></div>
+        <div class="job-info">
+          <span class="job-dept">Distribution &amp; Logistics</span>
+          <h3>Regional Logistics Manager</h3>
+        </div>
+        <div class="job-meta"><span><i class="fa-solid fa-location-dot"></i>Dubai, UAE</span><span><i class="fa-solid fa-clock"></i>Full-time</span></div>
+       <a href="404.html"><div class="job-arrow"><i class="fa-solid fa-arrow-right"></i></div></a>
+      </div>
+      <div class="job-row" data-dept="distribution" data-reveal>
+        <div class="job-icon"><i class="fa-solid fa-truck-fast"></i></div>
+        <div class="job-info">
+          <span class="job-dept">Distribution &amp; Logistics</span>
+          <h3>Fleet Operations Analyst</h3>
+        </div>
+        <div class="job-meta"><span><i class="fa-solid fa-location-dot"></i>Chicago, USA</span><span><i class="fa-solid fa-clock"></i>Full-time</span></div>
+       <a href="404.html"><div class="job-arrow"><i class="fa-solid fa-arrow-right"></i></div></a>
+      </div>
+      <div class="job-row" data-dept="packaging" data-reveal>
+        <div class="job-icon"><i class="fa-solid fa-box-open"></i></div>
+        <div class="job-info">
+          <span class="job-dept">Packaging Engineering</span>
+          <h3>Packaging Design Engineer</h3>
+        </div>
+        <div class="job-meta"><span><i class="fa-solid fa-location-dot"></i>Singapore</span><span><i class="fa-solid fa-clock"></i>Full-time</span></div>
+        <a href="404.html"><div class="job-arrow"><i class="fa-solid fa-arrow-right"></i></div></a>
+      </div>
+      <div class="job-row" data-dept="packaging" data-reveal>
+        <div class="job-icon"><i class="fa-solid fa-box-open"></i></div>
+        <div class="job-info">
+          <span class="job-dept">Packaging Engineering</span>
+          <h3>Sustainability Packaging Lead</h3>
+        </div>
+        <div class="job-meta"><span><i class="fa-solid fa-location-dot"></i>São Paulo, BR</span><span><i class="fa-solid fa-clock"></i>Full-time</span></div>
+        <a href="404.html"><div class="job-arrow"><i class="fa-solid fa-arrow-right"></i></div></a>
+      </div>
+      <div class="job-row" data-dept="corporate" data-reveal>
+        <div class="job-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="job-info">
+          <span class="job-dept">Corporate &amp; Commercial</span>
+          <h3>Brand Manager — Personal Care</h3>
+        </div>
+        <div class="job-meta"><span><i class="fa-solid fa-location-dot"></i>Chicago, USA</span><span><i class="fa-solid fa-clock"></i>Full-time</span></div>
+        <a href="404.html"><div class="job-arrow"><i class="fa-solid fa-arrow-right"></i></div></a>
+      </div>
+      <div class="job-row" data-dept="corporate" data-reveal>
+        <div class="job-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="job-info">
+          <span class="job-dept">Corporate &amp; Commercial</span>
+          <h3>Financial Analyst</h3>
+        </div>
+        <div class="job-meta"><span><i class="fa-solid fa-location-dot"></i>Rotterdam, NL</span><span><i class="fa-solid fa-clock"></i>Full-time</span></div>
+       <a href="404.html"><div class="job-arrow"><i class="fa-solid fa-arrow-right"></i></div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     4. LIFE AT MERIDIAN (department spotlight tabs)
+     ========================================================= -->
+<section class="spotlight" id="departments">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-magnifying-glass"></i> Life At Meridian</div>
+      <h2>Pick a department. See a day in it.</h2>
+    </div>
+
+    <div class="spotlight-grid">
+      <div class="spotlight-tabs" data-reveal="left">
+        <button class="spotlight-tab is-active" data-target="0"><span class="sk-num">01</span>Formulation Science</button>
+        <button class="spotlight-tab" data-target="1"><span class="sk-num">02</span>Plant Operations</button>
+        <button class="spotlight-tab" data-target="2"><span class="sk-num">03</span>Distribution &amp; Logistics</button>
+        <button class="spotlight-tab" data-target="3"><span class="sk-num">04</span>Packaging Engineering</button>
+        <button class="spotlight-tab" data-target="4"><span class="sk-num">05</span>Corporate &amp; Commercial</button>
+      </div>
+
+      <div class="spotlight-panels" data-reveal="right">
+        <div class="spotlight-panel is-active" data-panel="0">
+          <div class="spotlight-media"><img src="Assest/bottling_line.webp" alt="Formulation Science department"></div>
+          <div class="spotlight-copy">
+            <h3>Formulation Science</h3>
+            <p>Dedicated labs for food, personal care and home categories, working side by side with the plant floor instead of handing off over a wall.</p>
+            <ul class="spotlight-features">
+              <li><i class="fa-solid fa-check"></i>9 open roles</li>
+              <li><i class="fa-solid fa-check"></i>Labs in 6 countries</li>
+              <li><i class="fa-solid fa-check"></i>Weeks, not quarters, lab-to-line</li>
+            </ul>
+          </div>
+        </div>
+        <div class="spotlight-panel" data-panel="1">
+          <div class="spotlight-media"><img src="Assest/microscope_lab.webp" alt="Plant Operations department"></div>
+          <div class="spotlight-copy">
+            <h3>Plant Operations</h3>
+            <p>Eleven plants run under one quality standard, with real-time monitoring and a clear promotion path from line to shift lead to plant manager.</p>
+            <ul class="spotlight-features">
+              <li><i class="fa-solid fa-check"></i>14 open roles</li>
+              <li><i class="fa-solid fa-check"></i>11 plants worldwide</li>
+              <li><i class="fa-solid fa-check"></i>Structured shift-lead track</li>
+            </ul>
+          </div>
+        </div>
+        <div class="spotlight-panel" data-panel="2">
+          <div class="spotlight-media"><img src="Assest/forklift_loading.webp" alt="Distribution and Logistics department"></div>
+          <div class="spotlight-copy">
+            <h3>Distribution &amp; Logistics</h3>
+            <p>The team behind 24 regional hubs and a 24/7 control tower — routing fleet, freight and ports so every retail partner gets a full shelf on time.</p>
+            <ul class="spotlight-features">
+              <li><i class="fa-solid fa-check"></i>11 open roles</li>
+              <li><i class="fa-solid fa-check"></i>24 hubs across 5 regions</li>
+              <li><i class="fa-solid fa-check"></i>48H average replenishment</li>
+            </ul>
+          </div>
+        </div>
+        <div class="spotlight-panel" data-panel="3">
+          <div class="spotlight-media"><img src="Assest/detergent_granules.webp" alt="Packaging Engineering department"></div>
+          <div class="spotlight-copy">
+            <h3>Packaging Engineering</h3>
+            <p>Materials tested for shelf, transit and end-of-life impact — the team responsible for 90% of our SKUs being recyclable by weight.</p>
+            <ul class="spotlight-features">
+              <li><i class="fa-solid fa-check"></i>6 open roles</li>
+              <li><i class="fa-solid fa-check"></i>90% recyclable packaging today</li>
+              <li><i class="fa-solid fa-check"></i>Every new SKU checklist-reviewed</li>
+            </ul>
+          </div>
+        </div>
+        <div class="spotlight-panel" data-panel="4">
+          <div class="spotlight-media"><img src="Assest/coca_cola_building.webp" alt="Corporate and Commercial department"></div>
+          <div class="spotlight-copy">
+            <h3>Corporate &amp; Commercial</h3>
+            <p>Brand, finance and retail partnership teams that turn what the plants and labs build into what actually lands on a shelf.</p>
+            <ul class="spotlight-features">
+              <li><i class="fa-solid fa-check"></i>7 open roles</li>
+              <li><i class="fa-solid fa-check"></i>98 retail partners supported</li>
+              <li><i class="fa-solid fa-check"></i>Hybrid across 4 regional offices</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     5. BENEFITS IN NUMBERS
+     ========================================================= -->
+<section class="benefits impact" id="benefits">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-heart"></i> Benefits</div>
+      <h2>What comes with the role.</h2>
+    </div>
+
+    <div class="impact-grid">
+      <div class="impact-card" data-reveal>
+        <i class="fa-solid fa-baby"></i>
+        <b data-count="20" data-suffix="wks">0</b>
+        <span class="impact-label">Parental Leave</span>
+        <p>Paid, everywhere Meridian operates a plant or hub.</p>
+      </div>
+      <div class="impact-card" data-reveal>
+        <i class="fa-solid fa-graduation-cap"></i>
+        <b data-count="2000" data-plain="true">0</b>
+        <span class="impact-label">Annual Learning Budget (USD)</span>
+        <p>Courses, certifications and conferences, your call.</p>
+      </div>
+      <div class="impact-card" data-reveal>
+        <i class="fa-solid fa-arrow-trend-up"></i>
+        <b data-count="68" data-suffix="%">0</b>
+        <span class="impact-label">Internal Promotion Rate</span>
+        <p>Most leadership roles are filled from inside Meridian.</p>
+      </div>
+      <div class="impact-card" data-reveal>
+        <i class="fa-solid fa-face-smile"></i>
+        <b data-count="4" data-plain="true">0</b>
+        <span class="impact-label">Employee Satisfaction / 5</span>
+        <p>Measured every year, published to every plant.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     6. HIRING PROCESS TIMELINE
+     ========================================================= -->
+<section class="process-timeline roadmap" id="process">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-route"></i> How Hiring Works</div>
+      <h2>From application to offer, five steps.</h2>
+    </div>
+
+    <div class="roadmap-track">
+      <div class="roadmap-line"><span class="roadmap-line-fill" id="hiringFill"></span></div>
+
+      <div class="roadmap-item" data-reveal>
+        <div class="roadmap-dot"></div>
+        <span class="roadmap-year">Step 01</span>
+        <div class="roadmap-copy"><h3>Apply Online</h3><p>Submit your application directly to the role — no recruiter account required.</p></div>
+      </div>
+      <div class="roadmap-item" data-reveal>
+        <div class="roadmap-dot"></div>
+        <span class="roadmap-year">Step 02</span>
+        <div class="roadmap-copy"><h3>Recruiter Screen</h3><p>A 30-minute call to walk through your background and what the role actually involves.</p></div>
+      </div>
+      <div class="roadmap-item" data-reveal>
+        <div class="roadmap-dot"></div>
+        <span class="roadmap-year">Step 03</span>
+        <div class="roadmap-copy"><h3>Team Interviews</h3><p>Conversations with the team you'd join, focused on real problems they're solving right now.</p></div>
+      </div>
+      <div class="roadmap-item" data-reveal>
+        <div class="roadmap-dot"></div>
+        <span class="roadmap-year">Step 04</span>
+        <div class="roadmap-copy"><h3>Offer &amp; Negotiation</h3><p>A clear, written offer — with room to talk through start date, relocation or role scope.</p></div>
+      </div>
+      <div class="roadmap-item is-current" data-reveal>
+        <div class="roadmap-dot"></div>
+        <span class="roadmap-year">Step 05</span>
+        <div class="roadmap-copy"><h3>Welcome Aboard</h3><p>A structured onboarding into your plant, lab, hub or team — not a login and a shrug.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     7. CTA / JOB ALERTS
+     ========================================================= -->
+<section class="cta" id="login">
+  <div class="container">
+    <div data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-envelope"></i> Don't See The Right Role?</div>
+      <h2>Get new openings before they're posted.</h2>
+      <p>Tell us the department you're watching and we'll email you the moment a matching role opens.</p>
+    </div>
+    <form class="cta-form" data-reveal onsubmit="event.preventDefault(); this.reset(); this.querySelector('button').innerHTML='<i class=\'fa-solid fa-check\'></i> Subscribed';">
+      <input type="email" placeholder="you@email.com" required>
+      <button type="submit" class="btn btn-gold">Get Job Alerts</button>
+    </form>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER (identical to home)
+     ========================================================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="career.html" class="logo">
+  <img src="Assest/stackly-icon.webp" alt="Stackly" class="logo-mark">
+  Stackly
+</a>
+        <p>A fast moving consumer goods house building trusted food, personal care and home essentials since 1994.</p>
+        <div class="footer-social">
+          <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="404.html" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="404.html">About</a></li>
+          <li><a href="sustain.html">Sustainability</a></li>
+          <li><a href="career.html">Careers</a></li>
+          <li><a href="404.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="categories.html#families">Food &amp; Beverage</a></li>
+          <li><a href="categories.html#families">Personal Care</a></li>
+          <li><a href="categories.html#families">Home Care</a></li>
+          <li><a href="categories.html#families">Wellness</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="404.html">hello@meridiangoods.com</a></li>
+          <li><a href="404.html">+1 (800) 555-1234</a></li>
+          <li><a href="404.html">Distribution Hubs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Meridian Consumer Goods, Inc. All rights reserved.</span>
+      <span>Privacy Policy · Terms · Cookie Settings</span>
+    </div>
+  </div>
+</footer>
+
+<!-- =========================================================
+     JS — shared behaviour (header/menu/cursor/reveal) + page-specific
+     (counters, role filtering, department tabs, hiring timeline draw)
+     ========================================================= -->
+<script>
+/* ---- header scroll state ---- */
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('is-scrolled', window.scrollY > 40);
+}, { passive: true });
+
+/* ---- hamburger / mobile menu ---- */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+function toggleMenu(open){
+  hamburger.classList.toggle('is-active', open);
+  mobileMenu.classList.toggle('is-open', open);
+  menuOverlay.classList.toggle('is-open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+hamburger.addEventListener('click', () => toggleMenu(!mobileMenu.classList.contains('is-open')));
+menuOverlay.addEventListener('click', () => toggleMenu(false));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+/* ---- IntersectionObserver scroll reveal ---- */
+const revealEls = document.querySelectorAll('[data-reveal]');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting){
+      entry.target.classList.add('is-visible');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+revealEls.forEach(el => io.observe(el));
+
+/* ---- animated counters (supports optional data-suffix, e.g. "%", "wks") ---- */
+const counters = document.querySelectorAll('[data-count]');
+const counterIO = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseInt(el.getAttribute('data-count'), 10);
+    const isPlain = el.hasAttribute('data-plain');
+    const suffix = el.getAttribute('data-suffix') || '';
+    const obj = { val: 0 };
+    gsap.to(obj, {
+      val: target,
+      duration: 1.8,
+      ease: 'power2.out',
+      onUpdate: () => { el.textContent = (isPlain ? Math.floor(obj.val) : Math.floor(obj.val).toLocaleString()) + suffix; },
+      onComplete: () => { el.textContent = (isPlain ? target : target.toLocaleString()) + suffix; }
+    });
+    counterIO.unobserve(el);
+  });
+}, { threshold: 0.6 });
+counters.forEach(c => counterIO.observe(c));
+
+try{ gsap.registerPlugin(ScrollTrigger); }catch(e){ console.warn('ScrollTrigger unavailable:', e); }
+
+/* ---- preloader (hard fallback so it can never get stuck) ---- */
+const preloader = document.getElementById('preloader');
+const preloaderFill = document.getElementById('preloaderFill');
+const preloaderPct = document.getElementById('preloaderPct');
+let heroPlayed = false;
+function clearPreloader(){
+  if (!preloader || preloader.dataset.done) return;
+  preloader.dataset.done = '1';
+  preloader.style.transition = 'transform 1s cubic-bezier(.22,.68,0,1), opacity .6s ease';
+  preloader.style.transform = 'translateY(-100%)';
+  setTimeout(() => { preloader.style.display = 'none'; }, 1050);
+  if (!heroPlayed){ heroPlayed = true; playHeroIntro(); }
+}
+setTimeout(clearPreloader, 2500);
+try{
+  const loadCounter = { v: 0 };
+  gsap.timeline({ onComplete: clearPreloader })
+    .to(loadCounter, {
+      v: 100, duration: 1.1, ease: 'power2.inOut', delay: .2,
+      onUpdate: () => {
+        const val = Math.floor(loadCounter.v);
+        if (preloaderFill) preloaderFill.style.width = val + '%';
+        if (preloaderPct) preloaderPct.textContent = val + '%';
+      }
+    });
+}catch(e){ clearPreloader(); }
+
+function playHeroIntro(){
+  try{
+    gsap.timeline({ defaults: { ease: 'power3.out' } })
+      .from('.careers-hero-copy .eyebrow', { opacity: 0, y: 18, duration: .7 })
+      .from('.careers-hero .split-title .word', { opacity: 0, y: '100%', duration: .9, stagger: .03 }, '-=.4')
+      .from('.careers-hero-copy .lede', { opacity: 0, y: 20, duration: .8 }, '-=.55')
+      .from('.careers-hero-copy .hero-cta .btn', { opacity: 0, y: 16, duration: .6, stagger: .12 }, '-=.5')
+      .from('.careers-hero-copy .hero-stats > div', { opacity: 0, y: 16, duration: .6, stagger: .1 }, '-=.4')
+      .from('.careers-hero-frame', { opacity: 0, scale: .94, duration: 1, ease: 'power2.out' }, '-=.9')
+      .from('.careers-hero-visual .hero-tag', { opacity: 0, y: 16, duration: .6, stagger: .15 }, '-=.5');
+  }catch(e){ console.warn('Hero intro skipped:', e); }
+}
+
+/* ---- graceful fallback for any hotlinked photo that fails to load ---- */
+document.querySelectorAll('img').forEach(img => {
+  img.addEventListener('error', function handler(){
+    const wrap = img.parentElement;
+    if (!wrap || wrap.classList.contains('img-fallback')) return;
+    wrap.classList.add('img-fallback');
+    const note = document.createElement('div');
+    note.className = 'img-fallback-icon';
+    note.innerHTML = '<i class="fa-solid fa-image"></i><span>' + (img.alt || 'Meridian') + '</span>';
+    wrap.appendChild(note);
+  }, { once: true });
+});
+
+/* ---- custom cursor ---- */
+try{
+  const cursorDot = document.getElementById('cursorDot');
+  const cursorRing = document.getElementById('cursorRing');
+  const hasFinePointer = window.matchMedia('(pointer:fine)').matches;
+  if (hasFinePointer && cursorDot && cursorRing){
+    document.body.classList.add('has-custom-cursor');
+    window.addEventListener('mousemove', (e) => {
+      gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: .1 });
+      gsap.to(cursorRing, { x: e.clientX, y: e.clientY, duration: .5, ease: 'power3.out' });
+    });
+    document.querySelectorAll('a, button, .pillar-card, .impact-card, .job-row').forEach(el => {
+      el.addEventListener('mouseenter', () => cursorRing.classList.add('is-active'));
+      el.addEventListener('mouseleave', () => cursorRing.classList.remove('is-active'));
+    });
+  }
+}catch(e){ console.warn('Custom cursor skipped:', e); }
+
+/* ---- magnetic buttons ---- */
+try{
+  document.querySelectorAll('.btn, .btn-login, .filter-chip').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const r = btn.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width/2;
+      const y = e.clientY - r.top - r.height/2;
+      gsap.to(btn, { x: x * .25, y: y * .4, duration: .4, ease: 'power2.out' });
+    });
+    btn.addEventListener('mouseleave', () => gsap.to(btn, { x: 0, y: 0, duration: .5, ease: 'elastic.out(1,0.4)' }));
+  });
+}catch(e){ console.warn('Magnetic buttons skipped:', e); }
+
+/* ---- 3D tilt on cards ---- */
+try{
+  document.querySelectorAll('.pillar-card, .impact-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - .5;
+      const py = (e.clientY - r.top) / r.height - .5;
+      gsap.to(card, { rotateY: px * 8, rotateX: py * -8, transformPerspective: 700, duration: .5, ease: 'power2.out' });
+    });
+    card.addEventListener('mouseleave', () => gsap.to(card, { rotateX: 0, rotateY: 0, duration: .6, ease: 'power3.out' }));
+  });
+}catch(e){ console.warn('Tilt cards skipped:', e); }
+
+/* ---- parallax hero image ---- */
+try{
+  gsap.to('.careers-hero-frame img', {
+    yPercent: 10, ease: 'none',
+    scrollTrigger: { trigger: '.careers-hero', start: 'top top', end: 'bottom top', scrub: .6 }
+  });
+}catch(e){ console.warn('Parallax skipped:', e); }
+
+/* ---- stagger emphasis for grid cards on scroll ---- */
+try{
+  ['.pillar-grid .pillar-card', '.impact-grid .impact-card'].forEach(sel => {
+    ScrollTrigger.batch(sel, {
+      start: 'top 90%',
+      onEnter: (batch) => gsap.fromTo(batch, { y: 22 }, { y: 0, duration: .7, stagger: .1, ease: 'power3.out', overwrite: 'auto' })
+    });
+  });
+}catch(e){ console.warn('Batch stagger skipped:', e); }
+
+/* =========================================================
+   PAGE-SPECIFIC: open roles filter
+   ========================================================= */
+const filterChips = document.querySelectorAll('.filter-chip');
+const jobRows = document.querySelectorAll('.job-row');
+filterChips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    filterChips.forEach(c => c.classList.remove('is-active'));
+    chip.classList.add('is-active');
+    const filter = chip.getAttribute('data-filter');
+
+    jobRows.forEach(row => {
+      const match = filter === 'all' || row.getAttribute('data-dept') === filter;
+      if (match){
+        row.style.display = '';
+        gsap.fromTo(row, { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: .5, ease: 'power2.out' });
+      } else {
+        gsap.to(row, {
+          opacity: 0, x: 12, duration: .3, ease: 'power2.in',
+          onComplete: () => { row.style.display = 'none'; }
+        });
+      }
+    });
+  });
+});
+
+/* =========================================================
+   PAGE-SPECIFIC: department spotlight tab switcher
+   ========================================================= */
+const spotlightTabs = document.querySelectorAll('.spotlight-tab');
+const spotlightPanels = document.querySelectorAll('.spotlight-panel');
+spotlightTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    if (tab.classList.contains('is-active')) return;
+    const target = tab.getAttribute('data-target');
+
+    spotlightTabs.forEach(t => t.classList.remove('is-active'));
+    tab.classList.add('is-active');
+
+    spotlightPanels.forEach(panel => {
+      if (panel.getAttribute('data-panel') === target){
+        panel.classList.add('is-active');
+        gsap.fromTo(panel, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: .6, ease: 'power3.out' });
+      } else {
+        panel.classList.remove('is-active');
+      }
+    });
+  });
+});
+
+/* =========================================================
+   PAGE-SPECIFIC: hiring timeline line draw + dot pulse
+   ========================================================= */
+try{
+  gsap.to('#hiringFill', {
+    height: '100%', ease: 'none',
+    scrollTrigger: { trigger: '.roadmap-track', start: 'top 75%', end: 'bottom 60%', scrub: .8 }
+  });
+  ScrollTrigger.batch('.roadmap-dot', {
+    start: 'top 85%',
+    onEnter: (batch) => gsap.fromTo(batch, { scale: 0 }, { scale: 1, duration: .5, stagger: .08, ease: 'back.out(2)' })
+  });
+}catch(e){
+  const fill = document.getElementById('hiringFill');
+  if (fill) fill.style.height = '100%';
+}
+</script>
+</body>
+</html>

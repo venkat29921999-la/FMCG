@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Account — Meridian</title>
+<meta name="description" content="Create a Meridian account to access your dashboard.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+
+<a href="index.html" class="back-home" data-reveal>
+  <i class="fa-solid fa-arrow-left"></i> Back to Home
+</a>
+
+<div class="auth-page auth-page-reverse">
+
+  <!-- FORM SIDE -->
+  <div class="auth-form-side">
+    <div class="auth-card" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-user-plus"></i> Create Account</div>
+      <h2>Join Meridian.</h2>
+      <p class="auth-sub">Set up your dashboard access in under a minute.</p>
+
+      <div class="auth-alert" id="authAlert"></div>
+
+      <form id="signupForm" class="auth-form" novalidate>
+        <div class="form-group">
+          <label for="suName">Full name</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" id="suName" placeholder="Jordan Lee" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="suEmail">Email address</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" id="suEmail" placeholder="you@meridiangoods.com" required>
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="suPassword">Password</label>
+            <div class="input-wrap">
+              <i class="fa-solid fa-key"></i>
+              <input type="password" id="suPassword" placeholder="••••••••" required minlength="4">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="suConfirm">Confirm password</label>
+            <div class="input-wrap">
+              <i class="fa-solid fa-key"></i>
+              <input type="password" id="suConfirm" placeholder="••••••••" required minlength="4">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Account type</label>
+          <div class="role-toggle" id="suRoleToggle">
+            <button type="button" class="role-chip is-active" data-role="user">
+              <i class="fa-solid fa-user"></i>
+              <span>User</span>
+              <small>Track orders &amp; shipments</small>
+            </button>
+            <button type="button" class="role-chip" data-role="admin">
+              <i class="fa-solid fa-user-shield"></i>
+              <span>Admin</span>
+              <small>Manage catalogue &amp; team</small>
+            </button>
+          </div>
+          <input type="hidden" id="suRole" value="user">
+        </div>
+
+        <label class="check-label auth-terms">
+          <input type="checkbox" id="agreeTerms" required>
+          I agree to the Terms of Service and Privacy Policy.
+        </label>
+
+        <button type="submit" class="btn btn-gold btn-block">
+          Create Account <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+
+      <div class="auth-divider"><span>or</span></div>
+
+      <p class="auth-switch">Already have an account? <a href="login.html">Sign in</a></p>
+    </div>
+  </div>
+
+  <!-- BRAND SIDE -->
+  <div class="auth-brand">
+    <div class="auth-noise" aria-hidden="true"></div>
+    <div class="auth-brand-top">
+      <a href="index.html" class="logo"><span class="dot"></span>Meridian</a>
+    </div>
+
+    <div class="auth-brand-mid">
+      <div class="eyebrow"><i class="fa-solid fa-layer-group"></i> One Account, Every Hub</div>
+      <h1 class="split-title auth-title">
+        <span class="line"><span class="word">Set</span> <span class="word">up</span> <span class="word">once,</span></span>
+        <span class="line"><span class="word">run</span> <span class="word">everywhere.</span></span>
+      </h1>
+      <p class="lede">Whether you're stocking shelves or running the plant floor, your Meridian account follows you across 24 hubs and 42 countries.</p>
+    </div>
+
+    <div class="auth-brand-bottom">
+      <div class="auth-mini-stats">
+        <div><b>6,200</b><span>People</span></div>
+        <div><b>180</b><span>Active SKUs</span></div>
+        <div><b>98</b><span>Retail Partners</span></div>
+      </div>
+      <div class="auth-brand-barcode" id="authBarcode"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ---- barcode decoration ---- */
+const bar = document.getElementById('authBarcode');
+if (bar){
+  for (let i = 0; i < 26; i++){
+    const b = document.createElement('span');
+    b.style.height = (10 + Math.round(Math.random() * 22)) + 'px';
+    b.style.width = (Math.random() > .6 ? '3px' : '2px');
+    bar.appendChild(b);
+  }
+}
+
+/* ---- reveal ---- */
+document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('is-visible'));
+try{
+  gsap.timeline({ defaults:{ ease:'power3.out' } })
+    .from('.auth-brand-top', { opacity:0, y:-14, duration:.7 })
+    .from('.auth-title .word', { opacity:0, y:'100%', duration:.8, stagger:.03 }, '-=.4')
+    .from('.auth-brand-mid .lede', { opacity:0, y:16, duration:.7 }, '-=.5')
+    .from('.auth-mini-stats > div, .auth-brand-barcode', { opacity:0, y:16, duration:.7, stagger:.1 }, '-=.4')
+    .from('.auth-card > *', { opacity:0, y:18, duration:.6, stagger:.05 }, '-=.9');
+}catch(e){}
+
+/* ---- role toggle ---- */
+const roleChips = document.querySelectorAll('#suRoleToggle .role-chip');
+roleChips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    roleChips.forEach(c => c.classList.remove('is-active'));
+    chip.classList.add('is-active');
+    document.getElementById('suRole').value = chip.getAttribute('data-role');
+  });
+});
+
+/* ---- alert helper ---- */
+function showAlert(msg, type){
+  const el = document.getElementById('authAlert');
+  el.textContent = msg;
+  el.className = 'auth-alert is-visible ' + (type === 'error' ? 'is-error' : 'is-success');
+}
+
+function getUsers(){
+  try{ return JSON.parse(localStorage.getItem('meridian_users') || '[]'); }catch(e){ return []; }
+}
+function saveUsers(list){ localStorage.setItem('meridian_users', JSON.stringify(list)); }
+
+/* ---- signup submit: creates the account, then sends the user to login ---- */
+document.getElementById('signupForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('suName').value.trim();
+  const email = document.getElementById('suEmail').value.trim().toLowerCase();
+  const password = document.getElementById('suPassword').value;
+  const confirm = document.getElementById('suConfirm').value;
+  const role = document.getElementById('suRole').value;
+  const agreed = document.getElementById('agreeTerms').checked;
+
+  if (!name || !email || !password || !confirm){
+    showAlert('Fill in every field to continue.', 'error');
+    return;
+  }
+  if (password.length < 4){
+    showAlert('Password should be at least 4 characters.', 'error');
+    return;
+  }
+  if (password !== confirm){
+    showAlert('Passwords don\'t match.', 'error');
+    return;
+  }
+  if (!agreed){
+    showAlert('Please accept the Terms of Service to continue.', 'error');
+    return;
+  }
+
+  const users = getUsers();
+  if (users.find(u => u.email.toLowerCase() === email)){
+    showAlert('An account with that email already exists — try signing in.', 'error');
+    return;
+  }
+
+  const newUser = { name, email, password, role };
+  users.push(newUser);
+  saveUsers(users);
+  // No session is created here — the user must sign in explicitly.
+
+  showAlert('Account created — redirecting you to sign in…', 'success');
+  const btn = this.querySelector('button[type=submit]');
+  btn.innerHTML = '<i class="fa-solid fa-check"></i> Success';
+
+  setTimeout(() => {
+    window.location.href = 'login.html';
+  }, 900);
+});
+</script>
+</body>
+</html>

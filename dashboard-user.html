@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Dashboard — Meridian</title>
+<meta name="description" content="Your Meridian account dashboard — orders, shipments and messages in one place.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+<style>
+/* ---- page-specific additions (dashboard tab system + extra widgets) ---- */
+.dash-section{ display:none; }
+.dash-section.is-active{ display:block; animation: dashFade .5s var(--ease); }
+@keyframes dashFade{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:translateY(0);} }
+
+.dash-quick-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:30px; }
+.quick-action{ display:flex; align-items:center; gap:10px; padding:13px 18px; border-radius:999px; border:1px solid var(--ink-12); background:var(--paper); font-size:13px; font-weight:600; color:var(--ink-70); transition: border-color .3s ease, transform .3s ease, box-shadow .3s ease; }
+.quick-action i{ color:var(--gold); }
+.quick-action:hover{ border-color:var(--gold); transform:translateY(-2px); box-shadow:0 14px 24px -18px rgba(18,33,28,.3); }
+
+.order-media{ display:flex; flex-direction:column; align-items:center; gap:6px; }
+.order-thumb{ width:46px; height:46px; border-radius:8px; object-fit:cover; flex-shrink:0; background:var(--ink-12); }
+
+.dash-notif-panel{ position:absolute; top:64px; right:24px; width:320px; max-width:86vw; background:var(--paper); border:1px solid var(--ink-12); border-radius:10px; box-shadow:0 24px 48px -20px rgba(18,33,28,.35); padding:8px; z-index:150; opacity:0; visibility:hidden; transform:translateY(-10px); transition:.3s var(--ease); }
+.dash-notif-panel.is-open{ opacity:1; visibility:visible; transform:translateY(0); }
+.dash-notif-head{ display:flex; justify-content:space-between; padding:10px 12px; font-family:var(--font-mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-45); border-bottom:1px solid var(--ink-12); margin-bottom:4px; }
+.dash-notif-item{ display:flex; gap:12px; padding:11px 12px; border-radius:8px; transition:background .25s ease; }
+.dash-notif-item:hover{ background:var(--base); }
+.dash-notif-item i{ width:34px; height:34px; border-radius:50%; background:var(--gold-12); color:var(--gold); display:flex; align-items:center; justify-content:center; font-size:12.5px; flex-shrink:0; }
+.dash-notif-item b{ display:block; font-size:12.5px; }
+.dash-notif-item span{ font-size:11px; color:var(--ink-45); }
+
+.dash-toast{ position:fixed; bottom:26px; right:26px; display:flex; align-items:center; gap:10px; background:var(--ink); color:var(--base); padding:14px 20px; border-radius:8px; font-size:13.5px; box-shadow:0 20px 40px -18px rgba(0,0,0,.4); transform:translateY(24px); opacity:0; pointer-events:none; transition:.4s var(--ease); z-index:9999; max-width: calc(100vw - 48px); }
+.dash-toast.is-visible{ transform:translateY(0); opacity:1; }
+.dash-toast i{ color:var(--gold-2); flex-shrink:0; }
+
+.settings-card{ background:var(--paper); border:1px solid var(--ink-12); border-radius:8px; padding:26px; margin-bottom:20px; }
+.settings-card h3{ font-size:16px; margin-bottom:4px; display:flex; align-items:center; gap:10px; }
+.settings-card h3 i{ color:var(--gold); font-size:14px; }
+.settings-card > p{ font-size:13px; color:var(--ink-45); margin-bottom:6px; }
+.settings-row{ display:flex; align-items:center; justify-content:space-between; gap:20px; padding:16px 0; border-bottom:1px solid var(--ink-12); flex-wrap:wrap; }
+.settings-row:last-child{ border-bottom:none; padding-bottom:0; }
+.settings-row b{ display:block; font-size:14px; margin-bottom:3px; }
+.settings-row span{ font-size:12.5px; color:var(--ink-45); }
+.toggle-switch{ position:relative; width:44px; height:24px; border-radius:999px; background:var(--ink-12); flex-shrink:0; cursor:pointer; transition:background .3s ease; }
+.toggle-switch::after{ content:""; position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:50%; background:var(--paper); transition:transform .3s ease; box-shadow:0 2px 6px rgba(0,0,0,.2); }
+.toggle-switch.is-on{ background:var(--gold); }
+.toggle-switch.is-on::after{ transform:translateX(20px); }
+
+.empty-state{ text-align:center; padding:50px 20px; color:var(--ink-45); grid-column: 1 / -1; }
+.empty-state i{ font-size:28px; margin-bottom:14px; display:block; color:var(--ink-12); }
+
+.section-mini-head{ display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom:24px; }
+.section-mini-head h2{ font-size:22px; margin:0; }
+.section-mini-head p{ margin:2px 0 0; font-size:13.5px; color:var(--ink-45); }
+
+@media (max-width: 640px){
+  .dash-notif-panel{ right:12px; left:12px; width:auto; }
+}
+</style>
+</head>
+<body class="dash-body" data-role="user">
+
+<div class="dash-shell">
+
+  <!-- =========================================================
+       SIDEBAR
+       ========================================================= -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="dash-sidebar-top">
+<a href="index.html" class="logo">
+  <img src="Assest/stackly-icon.webp" alt="Stackly" class="logo-mark">
+  Stackly
+</a>      <button class="dash-sidebar-close" id="dashSidebarClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div class="dash-role-badge"><i class="fa-solid fa-user"></i> User Account</div>
+
+    <nav class="dash-nav">
+      <a href="#overview" data-section="overview"><i class="fa-solid fa-house"></i> Overview</a>
+      <a href="#orders" data-section="orders"><i class="fa-solid fa-bag-shopping"></i> My Orders</a>
+      <a href="#shipments" data-section="shipments"><i class="fa-solid fa-truck-fast"></i> Shipments</a>
+      <a href="#messages" data-section="messages"><i class="fa-solid fa-envelope"></i> Messages <span class="nav-badge" data-unread-badge></span></a>
+      <a href="#settings" data-section="settings"><i class="fa-solid fa-gear"></i> Settings</a>
+    </nav>
+
+    <div class="dash-sidebar-bottom">
+      <button type="button" class="btn btn-line btn-block" data-logout><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</button>
+    </div>
+  </aside>
+
+  <div class="dash-overlay" id="dashOverlay"></div>
+
+  <!-- =========================================================
+       MAIN
+       ========================================================= -->
+  <main class="dash-main">
+    <div class="dash-topbar">
+      <button class="dash-hamburger" id="dashHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+
+      <div class="dash-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="dashSearchInput" placeholder="Search orders, messages…">
+      </div>
+
+      <div class="dash-topbar-right">
+        <button class="dash-icon-btn" id="dashNotifBtn" aria-label="Notifications">
+          <i class="fa-solid fa-bell"></i>
+          <span class="dash-dot" id="dashNotifDot"></span>
+        </button>
+        <div class="dash-notif-panel" id="dashNotifPanel">
+          <div class="dash-notif-head"><span>Notifications</span><span data-unread-badge></span></div>
+          <div class="dash-notif-item"><i class="fa-solid fa-truck-fast"></i><div><b>Order MER-10221 shipped</b><span>2 hours ago</span></div></div>
+          <div class="dash-notif-item"><i class="fa-solid fa-star"></i><div><b>120 reward points earned</b><span>2 days ago</span></div></div>
+          <div class="dash-notif-item"><i class="fa-solid fa-leaf"></i><div><b>Your 2026 impact summary is ready</b><span>1 week ago</span></div></div>
+        </div>
+
+        <button type="button" class="dash-icon-btn" data-logout aria-label="Sign out"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+
+        <div class="dash-user-chip">
+          <div class="dash-avatar" data-user-avatar>M</div>
+          <div class="dash-user-info">
+            <b data-user-name>Meridian User</b>
+            <span data-user-email>you@meridiangoods.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-content" id="dashContent">
+
+      <!-- ========================= OVERVIEW ========================= -->
+      <section class="dash-section" data-section="overview">
+        <div class="dash-welcome" data-reveal>
+          <div>
+            <h1 data-user-greeting>Good afternoon</h1>
+            <p>Here's what's happening with your Meridian account today.</p>
+          </div>
+          <div class="dash-date" data-today>—</div>
+        </div>
+
+        <div class="dash-quick-actions" data-reveal>
+          <button type="button" class="quick-action" data-section-jump="shipments"><i class="fa-solid fa-truck-fast"></i> Track Shipment</button>
+          <button type="button" class="quick-action" data-section-jump="orders"><i class="fa-solid fa-rotate"></i> Reorder Favorites</button>
+          <button type="button" class="quick-action" data-section-jump="messages"><i class="fa-solid fa-headset"></i> Contact Support</button>
+          <button type="button" class="quick-action" data-toast="Preparing your latest invoice…|fa-file-invoice"><i class="fa-solid fa-file-invoice"></i> Download Invoice</button>
+        </div>
+
+        <div class="dash-stats">
+          <div class="dash-stat-card" data-reveal><i class="fa-solid fa-box-open"></i><div><b data-count="3" data-plain>0</b><span>Active Orders</span></div></div>
+          <div class="dash-stat-card" data-reveal><i class="fa-solid fa-truck-fast"></i><div><b data-count="2" data-plain>0</b><span>In Transit</span></div></div>
+          <div class="dash-stat-card" data-reveal><i class="fa-solid fa-circle-check"></i><div><b data-count="4" data-plain>0</b><span>Delivered This Month</span></div></div>
+          <div class="dash-stat-card" data-reveal><i class="fa-solid fa-star"></i><div><b data-count="1240">0</b><span>Reward Points</span></div></div>
+        </div>
+
+        <div class="dash-grid">
+          <div class="dash-panel" data-reveal>
+            <div class="dash-panel-head">
+              <h3><i class="fa-solid fa-envelope"></i> Recent Messages</h3>
+              <a href="#messages" data-section="messages" class="auth-link-sm">View all <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="email-list" id="emailPreviewList"></div>
+          </div>
+
+          <div class="dash-panel" data-reveal>
+            <div class="dash-panel-head"><h3><i class="fa-solid fa-bag-shopping"></i> Recent Orders</h3></div>
+            <div class="order-list" id="orderPreviewList"></div>
+          </div>
+        </div>
+
+        <div class="dash-panel" data-reveal>
+          <div class="dash-panel-head">
+            <h3><i class="fa-solid fa-sparkles"></i> Recommended For You</h3>
+          </div>
+          <div class="product-grid" style="grid-template-columns:repeat(3,1fr); gap:20px;">
+            <div class="product-card" data-reveal>
+              <div class="product-media"><img src="Assest/water_bottle.webp" alt="Sparkling Spring Water" loading="lazy"></div>
+              <div class="product-body">
+                <span class="sku">FB-014 · Beverage</span>
+                <h3>Sparkling Spring Water</h3>
+                <p>Naturally carbonated, zero sugar, 12-pack.</p>
+                <div class="product-foot"><span>Restock favorite</span><a href="404.html"><i class="fa-solid fa-arrow-right"></i></a></div>
+              </div>
+            </div>
+            <div class="product-card" data-reveal>
+              <div class="product-media"><img src="Assest/perfume.webp" alt="Eau de Parfum Collection" loading="lazy"></div>
+              <div class="product-body">
+                <span class="sku">PC-027 · Personal Care</span>
+                <h3>Eau de Parfum Collection</h3>
+                <p>Botanical fragrance, three signature scents.</p>
+                <div class="product-foot"><span>Based on your orders</span><a href="404.html"><i class="fa-solid fa-arrow-right"></i></a></div>
+              </div>
+            </div>
+            <div class="product-card" data-reveal>
+              <div class="product-media"><img src="Assest/pills.webp" alt="Daily Vitamins Family Pack" loading="lazy"></div>
+              <div class="product-body">
+                <span class="sku">HW-011 · Wellness</span>
+                <h3>Daily Vitamins — Family Pack</h3>
+                <p>Complete multivitamin sets for the whole household.</p>
+                <div class="product-foot"><span>Popular this month</span><a href="404.html"><i class="fa-solid fa-arrow-right"></i></a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================= ORDERS ========================= -->
+      <section class="dash-section" data-section="orders">
+        <div class="section-mini-head" data-reveal>
+          <div><h2>My Orders</h2><p>Every order you've placed with Meridian, in one place.</p></div>
+        </div>
+        <div class="dash-panel" data-reveal>
+          <div class="dash-panel-head">
+            <h3><i class="fa-solid fa-bag-shopping"></i> Order History</h3>
+            <div class="email-filter-tabs" id="orderFullTabs">
+              <button type="button" class="is-active" data-filter="all">All</button>
+              <button type="button" data-filter="processing">Processing</button>
+              <button type="button" data-filter="shipped">Shipped</button>
+              <button type="button" data-filter="delivered">Delivered</button>
+            </div>
+          </div>
+          <div class="order-list" id="orderFullList"></div>
+        </div>
+      </section>
+
+      <!-- ========================= SHIPMENTS ========================= -->
+      <section class="dash-section" data-section="shipments">
+        <div class="section-mini-head" data-reveal>
+          <div><h2>Shipments</h2><p>Live progress on everything currently on its way to you.</p></div>
+        </div>
+        <div id="shipmentList"></div>
+      </section>
+
+      <!-- ========================= MESSAGES ========================= -->
+      <section class="dash-section" data-section="messages">
+        <div class="section-mini-head" data-reveal>
+          <div><h2>Messages</h2><p>Shipping updates, receipts and news from Meridian.</p></div>
+        </div>
+        <div class="dash-panel" data-reveal>
+          <div class="dash-panel-head">
+            <h3><i class="fa-solid fa-envelope"></i> Inbox</h3>
+            <div class="email-filter-tabs" id="emailFullTabs">
+              <button type="button" class="is-active" data-filter="all">All</button>
+              <button type="button" data-filter="unread">Unread</button>
+              <button type="button" data-filter="flagged">Flagged</button>
+            </div>
+          </div>
+          <div class="email-list" id="emailFullList"></div>
+        </div>
+      </section>
+
+      <!-- ========================= SETTINGS ========================= -->
+      <section class="dash-section" data-section="settings">
+        <div class="section-mini-head" data-reveal>
+          <div><h2>Settings</h2><p>Manage your profile and notification preferences.</p></div>
+        </div>
+
+        <div class="settings-card" data-reveal>
+          <h3><i class="fa-solid fa-id-card"></i> Profile</h3>
+          <p>Your account details on file with Meridian.</p>
+          <div class="settings-row"><div><b data-user-name>—</b><span>Full name</span></div></div>
+          <div class="settings-row"><div><b data-user-email>—</b><span>Email address</span></div></div>
+          <div class="settings-row"><div><b>User Account</b><span>Account type</span></div></div>
+        </div>
+
+        <div class="settings-card" data-reveal>
+          <h3><i class="fa-solid fa-bell"></i> Notification Preferences</h3>
+          <div class="settings-row"><div><b>Order updates</b><span>Email me about shipping and delivery status</span></div><div class="toggle-switch is-on"></div></div>
+          <div class="settings-row"><div><b>SMS alerts</b><span>Text me for time-sensitive delivery windows</span></div><div class="toggle-switch"></div></div>
+          <div class="settings-row"><div><b>Product news</b><span>Occasional updates on new arrivals</span></div><div class="toggle-switch is-on"></div></div>
+        </div>
+
+        <button type="button" class="btn btn-line" data-logout><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</button>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script src="dashboard.js"></script>
+<script>
+  /* small page-only wiring: quick-action buttons that jump sections */
+  document.querySelectorAll('[data-section-jump]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelector('.dash-nav a[data-section="' + btn.getAttribute('data-section-jump') + '"]').click();
+    });
+  });
+</script>
+</body>
+</html>

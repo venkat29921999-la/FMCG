@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Page Not Found | Meridian</title>
+<meta name="description" content="This page doesn't exist. Head back to Meridian's homepage or the page you came from.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<link rel="stylesheet" href="404.css">
+</head>
+<body>
+
+<div class="error-bg" id="errorBg"></div>
+<div class="error-particles" id="errorParticles"></div>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<div class="error-page">
+
+  <header class="error-topbar">
+<a href="index.html" class="logo">
+  <img src="Assest/stackly-icon.webp" alt="Stackly" class="logo-mark">
+  Stackly
+</a>    <div class="error-tag"><span class="live-dot"></span><span class="tag-text">Error 404 · Not Found</span></div>
+  </header>
+
+  <main class="error-main">
+    <div class="error-content">
+
+      <div class="error-icon" data-reveal><i class="fa-solid fa-box-open"></i></div>
+
+      <div class="eyebrow" data-reveal><i class="fa-solid fa-barcode"></i> SKU Not Found</div>
+
+      <div class="error-code" data-reveal>
+        <div class="error-code-frame">
+          <span class="digit">4</span>
+          <span class="code-scan"></span>
+        </div>
+        <div class="error-code-frame">
+          <span class="digit zero">0</span>
+          <span class="code-scan"></span>
+        </div>
+        <div class="error-code-frame">
+          <span class="digit">4</span>
+          <span class="code-scan"></span>
+        </div>
+      </div>
+
+      <div class="error-barcode" id="errorBarcode" data-reveal></div>
+
+      <h1 class="error-heading" data-reveal>This page didn't make it off the truck.</h1>
+      <p class="error-copy" data-reveal>
+        The page you're looking for has been discontinued, moved, or never existed in our catalogue.
+        <span class="sku-ref">Reference: ERR-404-PAGE</span>
+      </p>
+
+      <div class="error-actions" data-reveal>
+        <a href="index.html#home" class="btn btn-gold"><i class="fa-solid fa-house"></i> Back to Home</a>
+        <button type="button" class="btn btn-outline" id="goBackBtn"><i class="fa-solid fa-arrow-left"></i> Back to Previous Page</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="error-footer">
+    © 2026 Meridian Consumer Goods, Inc. All rights reserved.
+  </footer>
+
+</div>
+
+<script>
+/* ---- barcode generator ---- */
+const barcode = document.getElementById('errorBarcode');
+for (let i = 0; i < 34; i++){
+  const bar = document.createElement('span');
+  const h = 10 + Math.round(Math.random() * 24);
+  bar.style.height = h + 'px';
+  bar.style.animationDelay = (Math.random() * 1.6).toFixed(2) + 's';
+  barcode.appendChild(bar);
+}
+
+/* ---- floating particles ---- */
+const particleHost = document.getElementById('errorParticles');
+for (let i = 0; i < 18; i++){
+  const p = document.createElement('span');
+  p.style.left = Math.random() * 100 + '%';
+  p.style.top = Math.random() * 100 + '%';
+  p.style.opacity = (0.25 + Math.random() * 0.5).toFixed(2);
+  particleHost.appendChild(p);
+}
+try{
+  document.querySelectorAll('.error-particles span').forEach(p => {
+    gsap.to(p, {
+      y: '+=' + (20 + Math.random() * 50),
+      x: '+=' + (Math.random() * 30 - 15),
+      duration: 4 + Math.random() * 3,
+      repeat: -1, yoyo: true, ease: 'sine.inOut'
+    });
+  });
+}catch(e){}
+
+/* ---- background image fallback (no broken-image look) ---- */
+(function(){
+  const testImg = new Image();
+  testImg.onerror = () => {
+    document.getElementById('errorBg').style.backgroundImage =
+      'linear-gradient(180deg, rgba(18,33,28,.95), rgba(18,33,28,.98)), radial-gradient(60% 60% at 50% 30%, rgba(201,151,63,.16), transparent 65%)';
+  };
+  testImg.src = 'Assest//grocery_shelf.webp';
+})();
+
+/* ---- custom cursor ---- */
+try{
+  const cursorDot = document.getElementById('cursorDot');
+  const cursorRing = document.getElementById('cursorRing');
+  if (window.matchMedia('(pointer:fine)').matches){
+    document.body.classList.add('has-custom-cursor');
+    window.addEventListener('mousemove', (e) => {
+      gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: .1 });
+      gsap.to(cursorRing, { x: e.clientX, y: e.clientY, duration: .5, ease: 'power3.out' });
+    });
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => cursorRing.classList.add('is-active'));
+      el.addEventListener('mouseleave', () => cursorRing.classList.remove('is-active'));
+    });
+  }
+}catch(e){}
+
+/* ---- reveal on load (no scroll needed, everything above the fold) ---- */
+try{
+  gsap.timeline({ defaults: { ease: 'power3.out' } })
+    .to('.error-icon', { opacity:1, y:0, duration:.6 })
+    .to('.eyebrow', { opacity:1, y:0, duration:.6 }, '-=.35')
+    .to('.error-code', { opacity:1, y:0, duration:.7 }, '-=.35')
+    .to('.error-barcode', { opacity:1, y:0, duration:.5 }, '-=.4')
+    .to('.error-heading', { opacity:1, y:0, duration:.6 }, '-=.3')
+    .to('.error-copy', { opacity:1, y:0, duration:.6 }, '-=.4')
+    .to('.error-actions', { opacity:1, y:0, duration:.6 }, '-=.4')
+    .to('.error-links', { opacity:1, y:0, duration:.6 }, '-=.4');
+}catch(e){
+  document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('is-visible'));
+}
+
+/* ---- magnetic buttons ---- */
+try{
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const r = btn.getBoundingClientRect();
+      gsap.to(btn, { x: (e.clientX - r.left - r.width/2) * .25, y: (e.clientY - r.top - r.height/2) * .4, duration: .4 });
+    });
+    btn.addEventListener('mouseleave', () => gsap.to(btn, { x:0, y:0, duration:.5, ease:'elastic.out(1,0.4)' }));
+  });
+}catch(e){}
+
+/* ---- back to previous page ---- */
+document.getElementById('goBackBtn').addEventListener('click', () => {
+  if (document.referrer && document.referrer.indexOf(window.location.host) !== -1 && window.history.length > 1){
+    window.history.back();
+  } else if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    window.location.href = 'index.html#home';
+  }
+});
+</script>
+</body>
+</html>

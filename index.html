@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian — Everyday Essentials, Elevated</title>
+<meta name="description" content="Meridian is a fast moving consumer goods house building trusted food, personal care, and home essentials for over 40 countries.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- =========================================================
+     PRELOADER
+     ========================================================= -->
+<div class="preloader" id="preloader">
+  <div class="preloader-mark"><span class="logo"></span><img src="Assest/stackly-icon.webp" alt="Stackly" class="logo-mark">Stackly</div>
+  <div class="preloader-bar"><span id="preloaderFill"></span></div>
+  <div class="preloader-pct" id="preloaderPct">0%</div>
+</div>
+
+<!-- custom cursor (desktop only, see JS) -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav-wrap">
+    <a href="index.html" class="logo">
+  <img src="Assest/stackly-icon.webp" alt="Stackly" class="logo-mark">
+  Stackly
+</a>
+
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="sustain.html">Sustainability</a>
+      <a href="global.html">Global Reach</a>
+      <a href="career.html">Careers</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="login.html" class="btn-login"><i class="fa-solid fa-user"></i> Login</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="categories.html">Categories</a>
+  <a href="sustain.html">Sustainability</a>
+  <a href="global.html">Global Reach</a>
+  <a href="career.html">Careers</a>
+  <a href="login.html" class="btn btn-gold"><i class="fa-solid fa-user"></i> Login</a>
+</nav>
+
+<!-- =========================================================
+     1. HERO
+     ========================================================= -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-copy">
+      <div class="eyebrow"><i class="fa-solid fa-barcode"></i> Fast Moving Consumer Goods</div>
+      <h1 class="split-title">
+        <span class="line"><span class="word">Everyday</span> <span class="word">essentials,</span></span>
+        <span class="line"><span class="word">engineered</span> <span class="word">to</span> <span class="word">move</span> <span class="word">fast.</span></span>
+      </h1>
+      <p class="lede">Meridian formulates, produces and ships the food, personal care and home brands that fill shelves across 42 countries — from first sketch to final scan.</p>
+      <div class="hero-cta">
+        <a href="categories.html" class="btn btn-gold">Explore Categories <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="sustain.html" class="btn btn-line">Our Process</a>
+      </div>
+      <div class="hero-stats">
+        <div><b data-count="42">0</b><span>Countries Served</span></div>
+        <div><b data-count="180">0</b><span>Active SKUs</span></div>
+        <div><b data-count="11">0</b><span>Production Plants</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-frame">
+        <img src="Assest/bottling_line.webp" alt="Meridian bottling production line">
+        <span class="scan-line"></span>
+      </div>
+      <div class="hero-tag tag-1">
+        <div class="hero-barcode" id="barcode1"></div>
+        <span>SKU · VERIFIED</span>
+      </div>
+      <div class="hero-tag tag-2">
+        <i class="fa-solid fa-truck-fast"></i>
+        <span>Shipped in 48H</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     2. CATEGORY TICKER
+     ========================================================= -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span><i class="fa-solid fa-circle"></i>Food &amp; Beverage</span>
+    <span><i class="fa-solid fa-circle"></i>Personal Care</span>
+    <span><i class="fa-solid fa-circle"></i>Home Care</span>
+    <span><i class="fa-solid fa-circle"></i>Health &amp; Wellness</span>
+    <span><i class="fa-solid fa-circle"></i>Beverages</span>
+    <span><i class="fa-solid fa-circle"></i>Food &amp; Beverage</span>
+    <span><i class="fa-solid fa-circle"></i>Personal Care</span>
+    <span><i class="fa-solid fa-circle"></i>Home Care</span>
+    <span><i class="fa-solid fa-circle"></i>Health &amp; Wellness</span>
+    <span><i class="fa-solid fa-circle"></i>Beverages</span>
+  </div>
+</div>
+
+<!-- =========================================================
+     3. ABOUT / STATS
+     ========================================================= -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-media" data-reveal="left">
+      <img src="Assest/microscope_lab.webp" alt="Meridian manufacturing facility floor">
+    </div>
+    <div class="about-copy" data-reveal="right">
+      <div class="eyebrow"><i class="fa-solid fa-seedling"></i> About Meridian</div>
+      <h2>Built for the shelf, run like a supply chain.</h2>
+      <p>Since 1994 Meridian has designed consumer goods that earn a second purchase — not just a first glance. We own the formulation labs, the production lines and the distribution network that gets a product from batch record to basket in days, not weeks.</p>
+      <p>Every category we touch is held to the same standard: consistent quality, transparent sourcing, and packaging that performs on the shelf as well as it does on the truck.</p>
+      <div class="stat-grid">
+        <div><b data-count="1994" data-plain="true">0</b><span>Founded</span></div>
+        <div><b data-count="6200">0</b><span>People</span></div>
+        <div><b data-count="98">0</b><span>Retail Partners</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     4. CATEGORIES
+     ========================================================= -->
+<section class="categories" id="categories">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-layer-group"></i> What We Make</div>
+      <h2>Five categories, one standard of craft.</h2>
+    </div>
+
+    <div class="cat-grid">
+      <div class="cat-card" data-reveal>
+        <img src="Assest/milk_shelf.webp" alt="Food and beverage aisle">
+        <div class="cat-info"><span class="sku">SKU · 01</span><h3>Food &amp; Beverage</h3><p>Pantry staples, dairy &amp; snacking</p></div>
+      </div>
+      <div class="cat-card" data-reveal>
+        <img src="Assest/spa_perfume.webp" alt="Personal care and fragrance products">
+        <div class="cat-info"><span class="sku">SKU · 02</span><h3>Personal Care</h3><p>Fragrance, skin &amp; grooming</p></div>
+      </div>
+      <div class="cat-card" data-reveal>
+        <img src="Assest/detergent_granules.webp" alt="Home care detergent products">
+        <div class="cat-info"><span class="sku">SKU · 03</span><h3>Home Care</h3><p>Laundry, surface &amp; dish care</p></div>
+      </div>
+      <div class="cat-card" data-reveal>
+        <img src="Assest/grocery_shelf.webp" alt="Health and wellness retail shelves">
+        <div class="cat-info"><span class="sku">SKU · 04</span><h3>Health &amp; Wellness</h3><p>Everyday supplements &amp; care</p></div>
+      </div>
+      <div class="cat-card" data-reveal>
+        <img src="Assest/bottling_machine.webp" alt="Beverage bottling line">
+        <div class="cat-info"><span class="sku">SKU · 05</span><h3>Beverages</h3><p>Still, sparkling &amp; functional</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     5. FEATURED PRODUCTS
+     ========================================================= -->
+<section class="products" id="products">
+  <div class="container">
+    <div class="products-head">
+      <div class="section-head" style="margin-bottom:0" data-reveal>
+        <div class="eyebrow"><i class="fa-solid fa-star"></i> Featured</div>
+        <h2>Best-selling formulations.</h2>
+      </div>
+      <a href="categories.html" class="btn btn-line">View Full Range <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="product-grid">
+      <div class="product-card" data-reveal>
+        <div class="product-media"><img src="Assest/bottling_line.webp" alt="Meridian sparkling water"></div>
+        <div class="product-body">
+          <span class="sku">FB-014 · Beverage</span>
+          <h3>Sparkling Spring Water</h3>
+          <p>Naturally carbonated, sourced from protected alpine springs.</p>
+          <div class="product-foot"><span>500ml · 12 pack</span><a href="404.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+        </div>
+      </div>
+      <div class="product-card" data-reveal>
+        <div class="product-media"><img src="Assest/spa_perfume.webp" alt="Meridian fragrance line"></div>
+        <div class="product-body">
+          <span class="sku">PC-027 · Personal Care</span>
+          <h3>Eau de Parfum Collection</h3>
+          <p>Six signature scents built on sustainably sourced botanicals.</p>
+          <div class="product-foot"><span>50ml · glass</span><a href="404.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+        </div>
+      </div>
+      <div class="product-card" data-reveal>
+        <div class="product-media"><img src="Assest/detergent_granules.webp" alt="Meridian laundry detergent"></div>
+        <div class="product-body">
+          <span class="sku">HC-009 · Home Care</span>
+          <h3>Concentrate Laundry Pearls</h3>
+          <p>40-wash concentrate formula, greywater safe.</p>
+          <div class="product-foot"><span>1.2kg · pouch</span><a href="404.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+        </div>
+      </div>
+      <div class="product-card" data-reveal>
+        <div class="product-media"><img src="Assest/milk_shelf.webp" alt="Meridian dairy range"></div>
+        <div class="product-body">
+          <span class="sku">FB-031 · Food</span>
+          <h3>Organic Dairy Range</h3>
+          <p>Grass-fed, single-origin dairy from certified partner farms.</p>
+          <div class="product-foot"><span>1L · carton</span><a href="404.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+        </div>
+      </div>
+      <div class="product-card" data-reveal>
+        <div class="product-media"><img src="Assest/bottling_machine.webp" alt="Meridian functional beverage"></div>
+        <div class="product-body">
+          <span class="sku">BV-018 · Beverage</span>
+          <h3>Botanical Tonic Series</h3>
+          <p>Low-sugar functional tonics infused with adaptogens.</p>
+          <div class="product-foot"><span>330ml · can</span><a href="404.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+        </div>
+      </div>
+      <div class="product-card" data-reveal>
+        <div class="product-media"><img src="Assest/grocery_shelf.webp" alt="Meridian wellness range"></div>
+        <div class="product-body">
+          <span class="sku">HW-042 · Wellness</span>
+          <h3>Daily Essentials Kit</h3>
+          <p>A curated set of everyday supplements for the whole family.</p>
+          <div class="product-foot"><span>30-day supply</span><a href="404.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     6. PROCESS / SUSTAINABILITY
+     ========================================================= -->
+<section class="process" id="sustainability">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-leaf"></i> How It's Made</div>
+      <h2>From raw material to retail-ready, in four stages.</h2>
+      <p>Every SKU follows the same audited pathway — because consistency is the product as much as the formula is.</p>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-step" data-reveal>
+        <span class="num">01</span>
+        <i class="fa-solid fa-wheat-awn"></i>
+        <h3>Source</h3>
+        <p>Raw materials are traced to certified farms and mills, with every batch logged before it enters our supply chain.</p>
+      </div>
+      <div class="process-step" data-reveal>
+        <span class="num">02</span>
+        <i class="fa-solid fa-flask"></i>
+        <h3>Formulate</h3>
+        <p>In-house labs test each formulation against safety, performance and shelf-stability benchmarks before approval.</p>
+      </div>
+      <div class="process-step" data-reveal>
+        <span class="num">03</span>
+        <i class="fa-solid fa-industry"></i>
+        <h3>Produce</h3>
+        <p>Eleven plants run under one quality standard, with real-time monitoring on every production line.</p>
+      </div>
+      <div class="process-step" data-reveal>
+        <span class="num">04</span>
+        <i class="fa-solid fa-truck-fast"></i>
+        <h3>Distribute</h3>
+        <p>Cold chain and ambient logistics move finished goods to retail partners in under 48 hours domestically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     7. GLOBAL REACH
+     ========================================================= -->
+<section class="reach" id="reach">
+  <div class="container">
+    <div class="reach-media" data-reveal="left">
+      <img src="Assest/forklift_loading.webp" alt="Meridian global distribution warehouse">
+      <div class="reach-chip"><i class="fa-solid fa-warehouse"></i><div><b>24</b><span>Hubs</span></div></div>
+      <div class="reach-chip chip-2"><i class="fa-solid fa-clock"></i><div><b>48H</b><span>Replenish</span></div></div>
+    </div>
+    <div data-reveal="right">
+      <div class="eyebrow"><i class="fa-solid fa-earth-americas"></i> Global Reach</div>
+      <h2>Stocked on shelves across 42 countries.</h2>
+      <p>Regional distribution hubs keep lead times short and shelves full, wherever a Meridian product is sold.</p>
+      <ul class="reach-list">
+        <li><i class="fa-solid fa-warehouse"></i> 24 regional distribution hubs</li>
+        <li><i class="fa-solid fa-route"></i> 48-hour domestic replenishment</li>
+        <li><i class="fa-solid fa-shield-halved"></i> ISO 22000 &amp; GMP certified plants</li>
+      </ul>
+      <div class="partners">
+        <span><i class="fa-solid fa-circle"></i>FreshMart</span>
+        <span><i class="fa-solid fa-circle"></i>Northgate Retail</span>
+        <span><i class="fa-solid fa-circle"></i>Union Grocers</span>
+        <span><i class="fa-solid fa-circle"></i>Coastal Foods</span>
+        <span><i class="fa-solid fa-circle"></i>Pacific Mart</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     8. TESTIMONIALS
+     ========================================================= -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-comment"></i> Retail Partners</div>
+      <h2>Trusted by the buyers who stock us.</h2>
+    </div>
+    <div class="t-grid">
+      <div class="t-card" data-reveal>
+        <i class="fa-solid fa-quote-left"></i>
+        <p>Meridian's fill-rate consistency is the best we've seen from any FMCG supplier we work with — replenishment is never a headache.</p>
+        <div class="t-person"><div class="t-avatar">N</div><div><b>Nadia Ruiz</b><span>Category Buyer, Northgate Retail</span></div></div>
+      </div>
+      <div class="t-card" data-reveal>
+        <i class="fa-solid fa-quote-left"></i>
+        <p>Their home care range converts faster than any comparable house brand on our shelves. Packaging performs in transit and on display.</p>
+        <div class="t-person"><div class="t-avatar">D</div><div><b>Daniel Osei</b><span>Merchandising Lead, Union Grocers</span></div></div>
+      </div>
+      <div class="t-card" data-reveal>
+        <i class="fa-solid fa-quote-left"></i>
+        <p>Working with Meridian's innovation team on a co-branded launch was the smoothest product introduction we've run in five years.</p>
+        <div class="t-person"><div class="t-avatar">L</div><div><b>Lena Fischer</b><span>Brand Director, Coastal Foods</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     9. INNOVATION / R&D
+     ========================================================= -->
+<section class="innovation" id="careers">
+  <div class="container">
+    <div class="innovation-media" data-reveal="right">
+      <img src="Assest/coca_cola_building.webp" alt="Meridian innovation and production facility">
+    </div>
+    <div data-reveal="left">
+      <div class="eyebrow"><i class="fa-solid fa-flask-vial"></i> Innovation</div>
+      <h2>A team built to move faster than the category.</h2>
+      <p>Our R&amp;D studios run parallel to the plant floor, so a formulation change can go from lab bench to production line in weeks, not quarters.</p>
+      <div class="innovation-list">
+        <div class="item">
+          <i class="fa-solid fa-microscope"></i>
+          <div><h3>Formulation Science</h3><p>Dedicated labs for food, personal care and home categories.</p></div>
+        </div>
+        <div class="item">
+          <i class="fa-solid fa-box-open"></i>
+          <div><h3>Packaging Engineering</h3><p>Materials tested for shelf, transit and end-of-life impact.</p></div>
+        </div>
+        <div class="item">
+          <i class="fa-solid fa-users"></i>
+          <div><h3>Careers at Meridian</h3><p>6,200 people across formulation, plant and distribution roles.</p></div>
+        </div>
+      </div>
+      <a href="career.html" class="btn btn-gold" style="margin-top:32px;">View Open Roles <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     10. CTA / NEWSLETTER
+     ========================================================= -->
+<section class="cta" id="login">
+  <div class="container">
+    <div data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-envelope"></i> Stay Stocked</div>
+      <h2>Get new launches before they hit shelves.</h2>
+      <p>One email a month — new SKUs, restock alerts, and retail partner news. No spam, ever.</p>
+    </div>
+    <form class="cta-form" data-reveal onsubmit="event.preventDefault(); this.reset(); this.querySelector('button').innerHTML='<i class=\'fa-solid fa-check\'></i> Subscribed';">
+      <input type="email" placeholder="you@company.com" required>
+      <button type="submit" class="btn btn-gold">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+  <img src="Assest/stackly-icon.webp" alt="Stackly" class="logo-mark">
+  Stackly
+</a>
+        <p>A fast moving consumer goods house building trusted food, personal care and home essentials since 1994.</p>
+        <div class="footer-social">
+          <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="404.html" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="404.html">About</a></li>
+          <li><a href="sustain.html">Sustainability</a></li>
+          <li><a href="career.html">Careers</a></li>
+          <li><a href="404.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="categories.html#families">Food &amp; Beverage</a></li>
+          <li><a href="categories.html#families">Personal Care</a></li>
+          <li><a href="categories.html#families">Home Care</a></li>
+          <li><a href="categories.html#families">Wellness</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="404.html">hello@meridiangoods.com</a></li>
+          <li><a href="404.html">+1 (800) 555-1234</a></li>
+          <li><a href="404.html">Distribution Hubs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Meridian Consumer Goods, Inc. All rights reserved.</span>
+      <span>Privacy Policy · Terms · Cookie Settings</span>
+    </div>
+  </div>
+</footer>
+
+<!-- =========================================================
+     JS — nav scroll, hamburger, IO reveal, GSAP hero + counters
+     ========================================================= -->
+<script>
+/* ---- header scroll state ---- */
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('is-scrolled', window.scrollY > 40);
+}, { passive: true });
+
+/* ---- hamburger / mobile menu ---- */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+
+function toggleMenu(open){
+  hamburger.classList.toggle('is-active', open);
+  mobileMenu.classList.toggle('is-open', open);
+  menuOverlay.classList.toggle('is-open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+hamburger.addEventListener('click', () => toggleMenu(!mobileMenu.classList.contains('is-open')));
+menuOverlay.addEventListener('click', () => toggleMenu(false));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+/* ---- barcode generator for hero tag ---- */
+const bar1 = document.getElementById('barcode1');
+if (bar1){
+  for (let i = 0; i < 18; i++){
+    const b = document.createElement('span');
+    const h = 8 + Math.round(Math.random() * 18);
+    b.style.height = h + 'px';
+    b.style.width = (Math.random() > .6 ? '3px' : '2px');
+    bar1.appendChild(b);
+  }
+}
+
+/* ---- IntersectionObserver scroll reveal ---- */
+const revealEls = document.querySelectorAll('[data-reveal]');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting){
+      entry.target.classList.add('is-visible');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+revealEls.forEach(el => io.observe(el));
+
+/* ---- animated counters (triggered once visible) ---- */
+const counters = document.querySelectorAll('[data-count]');
+const counterIO = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseInt(el.getAttribute('data-count'), 10);
+    const isPlain = el.hasAttribute('data-plain');
+    const obj = { val: 0 };
+    gsap.to(obj, {
+      val: target,
+      duration: 1.8,
+      ease: 'power2.out',
+      onUpdate: () => { el.textContent = isPlain ? Math.floor(obj.val) : Math.floor(obj.val).toLocaleString(); },
+      onComplete: () => { el.textContent = isPlain ? target : target.toLocaleString(); }
+    });
+    counterIO.unobserve(el);
+  });
+}, { threshold: 0.6 });
+counters.forEach(c => counterIO.observe(c));
+
+try{ gsap.registerPlugin(ScrollTrigger); }catch(e){ console.warn('ScrollTrigger unavailable:', e); }
+
+/* ---- preloader (with hard fallback so it can never get stuck) ---- */
+const preloader = document.getElementById('preloader');
+const preloaderFill = document.getElementById('preloaderFill');
+const preloaderPct = document.getElementById('preloaderPct');
+let heroPlayed = false;
+function clearPreloader(){
+  if (!preloader || preloader.dataset.done) return;
+  preloader.dataset.done = '1';
+  preloader.style.transition = 'transform 1s cubic-bezier(.22,.68,0,1), opacity .6s ease';
+  preloader.style.transform = 'translateY(-100%)';
+  setTimeout(() => { preloader.style.display = 'none'; }, 1050);
+  if (!heroPlayed){ heroPlayed = true; playHeroIntro(); }
+}
+/* absolute safety net: never let the overlay block the page for more than 2.5s */
+setTimeout(clearPreloader, 2500);
+
+try{
+  const loadCounter = { v: 0 };
+  gsap.timeline({ onComplete: clearPreloader })
+    .to(loadCounter, {
+      v: 100, duration: 1.2, ease: 'power2.inOut', delay: .2,
+      onUpdate: () => {
+        const val = Math.floor(loadCounter.v);
+        if (preloaderFill) preloaderFill.style.width = val + '%';
+        if (preloaderPct) preloaderPct.textContent = val + '%';
+      }
+    });
+}catch(e){ clearPreloader(); }
+
+/* ---- GSAP hero entrance (runs once preloader clears) ---- */
+function playHeroIntro(){
+  try{
+    gsap.timeline({ defaults: { ease: 'power3.out' } })
+      .from('.hero-copy .eyebrow', { opacity: 0, y: 18, duration: .7 })
+      .from('.split-title .word', { opacity: 0, y: '100%', duration: .9, stagger: .04 }, '-=.4')
+      .from('.hero-copy .lede', { opacity: 0, y: 20, duration: .8 }, '-=.55')
+      .from('.hero-cta .btn', { opacity: 0, y: 16, duration: .6, stagger: .12 }, '-=.5')
+      .from('.hero-stats > div', { opacity: 0, y: 16, duration: .6, stagger: .1 }, '-=.4')
+      .from('.hero-frame', { opacity: 0, scale: .94, duration: 1, ease: 'power2.out' }, '-=.9')
+      .from('.hero-tag', { opacity: 0, y: 16, duration: .6, stagger: .15 }, '-=.5');
+  }catch(e){ console.warn('Hero intro skipped:', e); }
+}
+
+/* ---- graceful fallback for any hotlinked photo that fails to load ---- */
+document.querySelectorAll('img').forEach(img => {
+  img.addEventListener('error', function handler(){
+    const wrap = img.parentElement;
+    if (!wrap || wrap.classList.contains('img-fallback')) return;
+    wrap.classList.add('img-fallback');
+    const note = document.createElement('div');
+    note.className = 'img-fallback-icon';
+    note.innerHTML = '<i class="fa-solid fa-image"></i><span>' + (img.alt || 'Meridian') + '</span>';
+    wrap.appendChild(note);
+  }, { once: true });
+});
+
+/* ---- ticker pause on hover ---- */
+const tickerTrack = document.querySelector('.ticker-track');
+if (tickerTrack){
+  tickerTrack.addEventListener('mouseenter', () => tickerTrack.style.animationPlayState = 'paused');
+  tickerTrack.addEventListener('mouseleave', () => tickerTrack.style.animationPlayState = 'running');
+}
+
+/* ---- custom cursor (desktop / fine pointer only) ---- */
+try{
+  const cursorDot = document.getElementById('cursorDot');
+  const cursorRing = document.getElementById('cursorRing');
+  const hasFinePointer = window.matchMedia('(pointer:fine)').matches;
+  if (hasFinePointer && cursorDot && cursorRing){
+    document.body.classList.add('has-custom-cursor');
+    window.addEventListener('mousemove', (e) => {
+      gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: .1 });
+      gsap.to(cursorRing, { x: e.clientX, y: e.clientY, duration: .5, ease: 'power3.out' });
+    });
+    document.querySelectorAll('a, button, .product-card, .cat-card').forEach(el => {
+      el.addEventListener('mouseenter', () => cursorRing.classList.add('is-active'));
+      el.addEventListener('mouseleave', () => cursorRing.classList.remove('is-active'));
+    });
+  }
+}catch(e){ console.warn('Custom cursor skipped:', e); }
+
+/* ---- magnetic buttons ---- */
+try{
+  document.querySelectorAll('.btn, .btn-login').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const r = btn.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width/2;
+      const y = e.clientY - r.top - r.height/2;
+      gsap.to(btn, { x: x * .35, y: y * .5, duration: .4, ease: 'power2.out' });
+    });
+    btn.addEventListener('mouseleave', () => gsap.to(btn, { x: 0, y: 0, duration: .5, ease: 'elastic.out(1,0.4)' }));
+  });
+}catch(e){ console.warn('Magnetic buttons skipped:', e); }
+
+/* ---- 3D tilt on product & category cards ---- */
+try{
+  document.querySelectorAll('.product-card, .cat-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - .5;
+      const py = (e.clientY - r.top) / r.height - .5;
+      gsap.to(card, { rotateY: px * 8, rotateX: py * -8, transformPerspective: 700, duration: .5, ease: 'power2.out' });
+    });
+    card.addEventListener('mouseleave', () => gsap.to(card, { rotateX: 0, rotateY: 0, duration: .6, ease: 'power3.out' }));
+  });
+}catch(e){ console.warn('Tilt cards skipped:', e); }
+
+/* ---- parallax hero image + tag drift on scroll ---- */
+try{
+  gsap.to('.hero-frame img', {
+    yPercent: 10, ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .6 }
+  });
+  gsap.to('.hero-tag.tag-1', { y: -30, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .6 } });
+  gsap.to('.hero-tag.tag-2', { y: 40, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .6 } });
+}catch(e){ console.warn('Parallax skipped:', e); }
+
+/* ---- scroll-triggered emphasis for grid cards (stagger only,
+       reveal itself is owned by the IO data-reveal system above
+       so opacity never gets stuck at 0 if one system misfires) ---- */
+try{
+  [ '.cat-grid .cat-card', '.product-grid .product-card', '.process-grid .process-step', '.t-grid .t-card' ]
+  .forEach(sel => {
+    ScrollTrigger.batch(sel, {
+      start: 'top 90%',
+      onEnter: (batch) => gsap.fromTo(batch, { y: 22 }, { y: 0, duration: .7, stagger: .1, ease: 'power3.out', overwrite: 'auto' })
+    });
+  });
+}catch(e){ console.warn('Batch stagger skipped:', e); }
+</script>
+</body>
+</html>

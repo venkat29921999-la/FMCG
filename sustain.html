@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sustainability — Meridian</title>
+<meta name="description" content="Meridian's path to 2030 — renewable energy, circular packaging, water stewardship and responsible sourcing across every plant we run.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- =========================================================
+     PRELOADER
+     ========================================================= -->
+<div class="preloader" id="preloader">
+  <div class="preloader-mark"><span class="logo"></span><img src="Assest/stackly-icon.webp" alt="Stackly" class="logo-mark">Stackly</div>
+  <div class="preloader-bar"><span id="preloaderFill"></span></div>
+  <div class="preloader-pct" id="preloaderPct">0%</div>
+</div>
+
+<!-- custom cursor (desktop only, see JS) -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- =========================================================
+     HEADER (identical to home)
+     ========================================================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav-wrap">
+<a href="index.html" class="logo">
+  <img src="Assest/stackly-icon.webp" alt="Stackly" class="logo-mark">
+  Stackly
+</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="sustain.html" class="active">Sustainability</a>
+      <a href="global.html">Global Reach</a>
+      <a href="career.html">Careers</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="login.html" class="btn-login"><i class="fa-solid fa-user"></i> Login</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="categories.html">Categories</a>
+  <a href="sustain.html">Sustainability</a>
+  <a href="global.html">Global Reach</a>
+  <a href="career.html">Careers</a>
+  <a href="login.html" class="btn btn-gold"><i class="fa-solid fa-user"></i> Login</a>
+</nav>
+
+<!-- =========================================================
+     1. SUSTAINABILITY HERO
+     ========================================================= -->
+<section class="sus-hero" id="top">
+  <div class="sus-particles" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="container">
+    <div class="breadcrumb" data-reveal>
+      <a href="index.html#home">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>Sustainability</span>
+    </div>
+
+    <div class="sus-hero-grid">
+      <div class="sus-hero-copy">
+        <div class="eyebrow"><i class="fa-solid fa-leaf"></i> Our Commitment</div>
+        <h1 class="split-title">
+          <span class="line"><span class="word">Made</span> <span class="word">responsibly,</span></span>
+          <span class="line"><span class="word">built</span> <span class="word">to</span> <span class="word">last</span> <span class="word">to</span> <span class="word">2030.</span></span>
+        </h1>
+        <p class="lede">Sustainability isn't a department at Meridian — it's a spec on every formulation, every plant and every pallet. Here's where our numbers stand today, and where our 2030 targets take us next.</p>
+        <div class="hero-cta">
+          <a href="#goals" class="btn btn-gold">View 2030 Goals <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#report" class="btn btn-line">Download Report <i class="fa-solid fa-arrow-down"></i></a>
+        </div>
+        <div class="hero-stats">
+          <div><b data-count="46" data-suffix="%">0</b><span>Renewable Electricity</span></div>
+          <div><b data-count="92" data-suffix="%">0</b><span>Waste Diverted from Landfill</span></div>
+          <div><b data-count="30" data-suffix="%">0</b><span>Water Intensity Cut Since 2019</span></div>
+        </div>
+      </div>
+
+      <div class="sus-hero-visual">
+        <div class="hero-frame sus-hero-frame">
+          <img src="Assest/solar_panels.webp" alt="Solar power at a Meridian production facility">
+          <span class="scan-line"></span>
+        </div>
+        <div class="hero-tag tag-5">
+          <i class="fa-solid fa-bolt"></i>
+          <span>Carbon Verified</span>
+        </div>
+        <div class="hero-tag tag-6">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>ISO 14001</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     2. FOUR PILLARS
+     ========================================================= -->
+<section class="pillars" id="pillars">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-layer-group"></i> Where We Focus</div>
+      <h2>Five pillars, one accountable roadmap.</h2>
+    </div>
+
+    <div class="pillar-grid">
+      <div class="pillar-card" data-reveal>
+        <img src="Assest/solar_panels.webp" alt="Climate and renewable energy">
+        <div class="pillar-info">
+          <i class="fa-solid fa-solar-panel"></i>
+          <span class="sku">PILLAR · 01</span>
+          <h3>Climate &amp; Energy</h3>
+          <p>Renewable power across every owned plant</p>
+        </div>
+      </div>
+      <div class="pillar-card" data-reveal>
+        <img src="Assest/recycling_plant.webp" alt="Circular packaging and recycling">
+        <div class="pillar-info">
+          <i class="fa-solid fa-recycle"></i>
+          <span class="sku">PILLAR · 02</span>
+          <h3>Circular Packaging</h3>
+          <p>Recyclable, reusable or compostable by design</p>
+        </div>
+      </div>
+      <div class="pillar-card" data-reveal>
+        <img src="Assest/mangrove_wetland.webp" alt="Water stewardship">
+        <div class="pillar-info">
+          <i class="fa-solid fa-droplet"></i>
+          <span class="sku">PILLAR · 03</span>
+          <h3>Water Stewardship</h3>
+          <p>Closed-loop treatment at water-stressed sites</p>
+        </div>
+      </div>
+      <div class="pillar-card" data-reveal>
+        <img src="Assest/grassland_restoration.webp" alt="Responsible sourcing and reforestation">
+        <div class="pillar-info">
+          <i class="fa-solid fa-seedling"></i>
+          <span class="sku">PILLAR · 04</span>
+          <h3>Responsible Sourcing</h3>
+          <p>Certified farms, mills and reforestation partners</p>
+        </div>
+      </div>
+      <div class="pillar-card" data-reveal>
+        <img src="Assest/microscope_lab.webp" alt="People and communities">
+        <div class="pillar-info">
+          <i class="fa-solid fa-people-group"></i>
+          <span class="sku">PILLAR · 05</span>
+          <h3>People &amp; Communities</h3>
+          <p>Fair wages and safe plants across 42 countries</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     3. 2030 GOALS (interactive tabs + animated progress rings)
+     ========================================================= -->
+<section class="goals" id="goals">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-bullseye"></i> 2030 Targets</div>
+      <h2>Pick a goal. Watch where we stand.</h2>
+      <p>Every target below is audited annually and tracked against a 2019 baseline unless otherwise noted.</p>
+    </div>
+
+    <div class="goals-grid">
+      <div class="goals-tabs" data-reveal="left">
+        <button class="goals-tab is-active" data-target="0"><span class="sk-num">01</span>Renewable Energy</button>
+        <button class="goals-tab" data-target="1"><span class="sk-num">02</span>Packaging Circularity</button>
+        <button class="goals-tab" data-target="2"><span class="sk-num">03</span>Water Intensity</button>
+        <button class="goals-tab" data-target="3"><span class="sk-num">04</span>Carbon Emissions</button>
+        <button class="goals-tab" data-target="4"><span class="sk-num">05</span>Zero Waste to Landfill</button>
+      </div>
+
+      <div class="goals-panels" data-reveal="right">
+        <div class="goal-panel is-active" data-panel="0">
+          <div class="goal-ring" data-percent="46">
+            <svg viewBox="0 0 120 120">
+              <circle class="ring-track" cx="60" cy="60" r="54"></circle>
+              <circle class="ring-progress" cx="60" cy="60" r="54"></circle>
+            </svg>
+            <div class="ring-label"><b>46%</b><span>of 100%</span></div>
+          </div>
+          <div class="goal-copy">
+            <h3>Renewable Energy</h3>
+            <p>Every plant is being converted to on-site solar, wind offtake, or certified renewable grid supply — no exceptions for older sites.</p>
+            <ul class="goal-features">
+              <li><i class="fa-solid fa-check"></i>Target: 100% renewable electricity by 2030</li>
+              <li><i class="fa-solid fa-check"></i>8 of 11 plants already converted</li>
+              <li><i class="fa-solid fa-check"></i>On-site solar live at 4 sites</li>
+            </ul>
+          </div>
+        </div>
+        <div class="goal-panel" data-panel="1">
+          <div class="goal-ring" data-percent="78">
+            <svg viewBox="0 0 120 120">
+              <circle class="ring-track" cx="60" cy="60" r="54"></circle>
+              <circle class="ring-progress" cx="60" cy="60" r="54"></circle>
+            </svg>
+            <div class="ring-label"><b>78%</b><span>of 95%</span></div>
+          </div>
+          <div class="goal-copy">
+            <h3>Packaging Circularity</h3>
+            <p>Every new SKU is designed against a recyclability checklist before it reaches the production line, not after.</p>
+            <ul class="goal-features">
+              <li><i class="fa-solid fa-check"></i>Target: 95% recyclable or reusable by 2028</li>
+              <li><i class="fa-solid fa-check"></i>78% of packaging qualifies today</li>
+              <li><i class="fa-solid fa-check"></i>12,400 tonnes of virgin plastic removed since 2021</li>
+            </ul>
+          </div>
+        </div>
+        <div class="goal-panel" data-panel="2">
+          <div class="goal-ring" data-percent="60">
+            <svg viewBox="0 0 120 120">
+              <circle class="ring-track" cx="60" cy="60" r="54"></circle>
+              <circle class="ring-progress" cx="60" cy="60" r="54"></circle>
+            </svg>
+            <div class="ring-label"><b>-30%</b><span>of -50%</span></div>
+          </div>
+          <div class="goal-copy">
+            <h3>Water Intensity</h3>
+            <p>Closed-loop treatment and reuse systems are rolling out first at our water-stressed plants, then everywhere else.</p>
+            <ul class="goal-features">
+              <li><i class="fa-solid fa-check"></i>Target: -50% water intensity by 2030</li>
+              <li><i class="fa-solid fa-check"></i>-30% achieved against 2019 baseline</li>
+              <li><i class="fa-solid fa-check"></i>Closed-loop treatment live at 6 sites</li>
+            </ul>
+          </div>
+        </div>
+        <div class="goal-panel" data-panel="3">
+          <div class="goal-ring" data-percent="54">
+            <svg viewBox="0 0 120 120">
+              <circle class="ring-track" cx="60" cy="60" r="54"></circle>
+              <circle class="ring-progress" cx="60" cy="60" r="54"></circle>
+            </svg>
+            <div class="ring-label"><b>-27%</b><span>of -50%</span></div>
+          </div>
+          <div class="goal-copy">
+            <h3>Carbon Emissions</h3>
+            <p>Scope 1 and 2 emissions are falling as renewable conversion scales, with logistics routing next on the list.</p>
+            <ul class="goal-features">
+              <li><i class="fa-solid fa-check"></i>Target: -50% Scope 1&amp;2 emissions by 2030</li>
+              <li><i class="fa-solid fa-check"></i>-27% achieved against 2019 baseline</li>
+              <li><i class="fa-solid fa-check"></i>184,000 tonnes CO₂e avoided last year</li>
+            </ul>
+          </div>
+        </div>
+        <div class="goal-panel" data-panel="4">
+          <div class="goal-ring" data-percent="92">
+            <svg viewBox="0 0 120 120">
+              <circle class="ring-track" cx="60" cy="60" r="54"></circle>
+              <circle class="ring-progress" cx="60" cy="60" r="54"></circle>
+            </svg>
+            <div class="ring-label"><b>92%</b><span>of 100%</span></div>
+          </div>
+          <div class="goal-copy">
+            <h3>Zero Waste to Landfill</h3>
+            <p>Production waste is sorted, composted or resold as feedstock before it ever reaches a landfill truck.</p>
+            <ul class="goal-features">
+              <li><i class="fa-solid fa-check"></i>Target: 100% diversion by 2027</li>
+              <li><i class="fa-solid fa-check"></i>92% of production waste diverted today</li>
+              <li><i class="fa-solid fa-check"></i>7 plants already at zero-waste-to-landfill</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     4. IMPACT IN NUMBERS
+     ========================================================= -->
+<section class="impact" id="impact">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-chart-line"></i> Impact To Date</div>
+      <h2>What the roadmap has moved so far.</h2>
+    </div>
+
+    <div class="impact-grid">
+      <div class="impact-card" data-reveal>
+        <i class="fa-solid fa-cloud"></i>
+        <b data-count="184000">0</b>
+        <span class="impact-label">Tonnes CO₂e Avoided / yr</span>
+        <p>Against a 2019 emissions baseline, plant-wide.</p>
+      </div>
+      <div class="impact-card" data-reveal>
+        <i class="fa-solid fa-droplet"></i>
+        <b data-count="2600000">0</b>
+        <span class="impact-label">Cubic Metres of Water Saved / yr</span>
+        <p>Through closed-loop treatment and reuse systems.</p>
+      </div>
+      <div class="impact-card" data-reveal>
+        <i class="fa-solid fa-tree"></i>
+        <b data-count="1240000">0</b>
+        <span class="impact-label">Trees Planted Since 2019</span>
+        <p>Across reforestation partners near sourcing regions.</p>
+      </div>
+      <div class="impact-card" data-reveal>
+        <i class="fa-solid fa-box-open"></i>
+        <b data-count="12400">0</b>
+        <span class="impact-label">Tonnes Virgin Plastic Removed</span>
+        <p>Replaced with recycled or reusable packaging formats.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     5. CERTIFICATIONS
+     ========================================================= -->
+<section class="quality" id="certifications">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-shield-halved"></i> Independently Verified</div>
+      <h2>Audited, not self-declared.</h2>
+    </div>
+
+    <div class="cert-grid">
+      <div class="cert-card" data-reveal><i class="fa-solid fa-award"></i><h3>ISO 14001</h3><p>Environmental management, plant-wide</p></div>
+      <div class="cert-card" data-reveal><i class="fa-solid fa-hand-holding-heart"></i><h3>Fair Trade Certified</h3><p>Across key raw material partners</p></div>
+      <div class="cert-card" data-reveal><i class="fa-solid fa-tree"></i><h3>FSC Chain of Custody</h3><p>Fibre-based packaging &amp; cartons</p></div>
+      <div class="cert-card" data-reveal><i class="fa-solid fa-leaf"></i><h3>RSPO Certified</h3><p>Sustainable palm-derived inputs</p></div>
+      <div class="cert-card" data-reveal><i class="fa-solid fa-magnifying-glass-chart"></i><h3>Carbon Trust Standard</h3><p>Verified year-on-year reduction</p></div>
+      <div class="cert-card" data-reveal><i class="fa-solid fa-building-shield"></i><h3>B Corp — In Progress</h3><p>Assessment underway, target 2027</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     6. ROADMAP TIMELINE
+     ========================================================= -->
+<section class="roadmap" id="roadmap">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-route"></i> The Journey</div>
+      <h2>From baseline to 2030, one milestone at a time.</h2>
+    </div>
+
+    <div class="roadmap-track">
+      <div class="roadmap-line"><span class="roadmap-line-fill" id="roadmapFill"></span></div>
+
+      <div class="roadmap-item" data-reveal>
+        <div class="roadmap-dot"></div>
+        <span class="roadmap-year">2019</span>
+        <div class="roadmap-copy"><h3>Baseline Set</h3><p>Emissions, water and waste measured plant-by-plant to anchor every target that followed.</p></div>
+      </div>
+      <div class="roadmap-item" data-reveal>
+        <div class="roadmap-dot"></div>
+        <span class="roadmap-year">2021</span>
+        <div class="roadmap-copy"><h3>Renewable Rollout Begins</h3><p>First on-site solar array goes live; packaging recyclability checklist becomes mandatory.</p></div>
+      </div>
+      <div class="roadmap-item" data-reveal>
+        <div class="roadmap-dot"></div>
+        <span class="roadmap-year">2023</span>
+        <div class="roadmap-copy"><h3>Water Program Scales</h3><p>Closed-loop treatment reaches six plants; reforestation partnerships launch near key sourcing regions.</p></div>
+      </div>
+      <div class="roadmap-item is-current" data-reveal>
+        <div class="roadmap-dot"></div>
+        <span class="roadmap-year">2026</span>
+        <div class="roadmap-copy"><h3>Today</h3><p>46% renewable electricity, 92% waste diverted, 78% packaging circularity — tracked and published annually.</p></div>
+      </div>
+      <div class="roadmap-item" data-reveal>
+        <div class="roadmap-dot"></div>
+        <span class="roadmap-year">2027</span>
+        <div class="roadmap-copy"><h3>Zero Waste to Landfill</h3><p>100% of production waste diverted across every plant, three years ahead of the wider roadmap.</p></div>
+      </div>
+      <div class="roadmap-item" data-reveal>
+        <div class="roadmap-dot"></div>
+        <span class="roadmap-year">2030</span>
+        <div class="roadmap-copy"><h3>Full Target Reached</h3><p>100% renewable electricity, 95% circular packaging, -50% water intensity and -50% Scope 1&amp;2 emissions.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     7. CTA / REPORT DOWNLOAD
+     ========================================================= -->
+<section class="cta" id="report">
+  <div class="container">
+    <div data-reveal>
+      <div class="eyebrow"><i class="fa-solid fa-file-lines"></i> Full Transparency</div>
+      <h2>Read the complete 2026 sustainability report.</h2>
+      <p>Every number on this page, broken down by plant, category and market — audited by a third party and published in full.</p>
+    </div>
+    <form class="cta-form" data-reveal onsubmit="event.preventDefault(); this.reset(); this.querySelector('button').innerHTML='<i class=\'fa-solid fa-check\'></i> Sent';">
+      <input type="email" placeholder="you@company.com" required>
+      <button type="submit" class="btn btn-gold">Get the Report</button>
+    </form>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER (identical to home)
+     ========================================================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+<a href="sustain.html" class="logo">
+  <img src="Assest/stackly-icon.webp" alt="Stackly" class="logo-mark">
+  Stackly
+</a>        <p>A fast moving consumer goods house building trusted food, personal care and home essentials since 1994.</p>
+        <div class="footer-social">
+          <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="404.html" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="404.html">About</a></li>
+          <li><a href="sustain.html">Sustainability</a></li>
+          <li><a href="career.html">Careers</a></li>
+          <li><a href="404.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="categories.html#families">Food &amp; Beverage</a></li>
+          <li><a href="categories.html#families">Personal Care</a></li>
+          <li><a href="categories.html#families">Home Care</a></li>
+          <li><a href="categories.html#families">Wellness</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="404.html">hello@meridiangoods.com</a></li>
+          <li><a href="404.html">+1 (800) 555-1234</a></li>
+          <li><a href="404.html">Distribution Hubs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Meridian Consumer Goods, Inc. All rights reserved.</span>
+      <span>Privacy Policy · Terms · Cookie Settings</span>
+    </div>
+  </div>
+</footer>
+
+<!-- =========================================================
+     JS — shared behaviour (header/menu/cursor/reveal) + page-specific
+     (progress rings, goal tabs, roadmap line draw)
+     ========================================================= -->
+<script>
+/* ---- header scroll state ---- */
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('is-scrolled', window.scrollY > 40);
+}, { passive: true });
+
+/* ---- hamburger / mobile menu ---- */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+function toggleMenu(open){
+  hamburger.classList.toggle('is-active', open);
+  mobileMenu.classList.toggle('is-open', open);
+  menuOverlay.classList.toggle('is-open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+hamburger.addEventListener('click', () => toggleMenu(!mobileMenu.classList.contains('is-open')));
+menuOverlay.addEventListener('click', () => toggleMenu(false));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+/* ---- IntersectionObserver scroll reveal ---- */
+const revealEls = document.querySelectorAll('[data-reveal]');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting){
+      entry.target.classList.add('is-visible');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+revealEls.forEach(el => io.observe(el));
+
+/* ---- animated counters (supports optional data-suffix, e.g. "%") ---- */
+const counters = document.querySelectorAll('[data-count]');
+const counterIO = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseInt(el.getAttribute('data-count'), 10);
+    const isPlain = el.hasAttribute('data-plain');
+    const suffix = el.getAttribute('data-suffix') || '';
+    const obj = { val: 0 };
+    gsap.to(obj, {
+      val: target,
+      duration: 1.8,
+      ease: 'power2.out',
+      onUpdate: () => { el.textContent = (isPlain ? Math.floor(obj.val) : Math.floor(obj.val).toLocaleString()) + suffix; },
+      onComplete: () => { el.textContent = (isPlain ? target : target.toLocaleString()) + suffix; }
+    });
+    counterIO.unobserve(el);
+  });
+}, { threshold: 0.6 });
+counters.forEach(c => counterIO.observe(c));
+
+try{ gsap.registerPlugin(ScrollTrigger); }catch(e){ console.warn('ScrollTrigger unavailable:', e); }
+
+/* ---- preloader (hard fallback so it can never get stuck) ---- */
+const preloader = document.getElementById('preloader');
+const preloaderFill = document.getElementById('preloaderFill');
+const preloaderPct = document.getElementById('preloaderPct');
+let heroPlayed = false;
+function clearPreloader(){
+  if (!preloader || preloader.dataset.done) return;
+  preloader.dataset.done = '1';
+  preloader.style.transition = 'transform 1s cubic-bezier(.22,.68,0,1), opacity .6s ease';
+  preloader.style.transform = 'translateY(-100%)';
+  setTimeout(() => { preloader.style.display = 'none'; }, 1050);
+  if (!heroPlayed){ heroPlayed = true; playHeroIntro(); }
+}
+setTimeout(clearPreloader, 2500);
+try{
+  const loadCounter = { v: 0 };
+  gsap.timeline({ onComplete: clearPreloader })
+    .to(loadCounter, {
+      v: 100, duration: 1.1, ease: 'power2.inOut', delay: .2,
+      onUpdate: () => {
+        const val = Math.floor(loadCounter.v);
+        if (preloaderFill) preloaderFill.style.width = val + '%';
+        if (preloaderPct) preloaderPct.textContent = val + '%';
+      }
+    });
+}catch(e){ clearPreloader(); }
+
+function playHeroIntro(){
+  try{
+    gsap.timeline({ defaults: { ease: 'power3.out' } })
+      .from('.sus-hero-copy .eyebrow', { opacity: 0, y: 18, duration: .7 })
+      .from('.sus-hero .split-title .word', { opacity: 0, y: '100%', duration: .9, stagger: .03 }, '-=.4')
+      .from('.sus-hero-copy .lede', { opacity: 0, y: 20, duration: .8 }, '-=.55')
+      .from('.sus-hero-copy .hero-cta .btn', { opacity: 0, y: 16, duration: .6, stagger: .12 }, '-=.5')
+      .from('.sus-hero-copy .hero-stats > div', { opacity: 0, y: 16, duration: .6, stagger: .1 }, '-=.4')
+      .from('.sus-hero-frame', { opacity: 0, scale: .94, duration: 1, ease: 'power2.out' }, '-=.9')
+      .from('.sus-hero-visual .hero-tag', { opacity: 0, y: 16, duration: .6, stagger: .15 }, '-=.5');
+  }catch(e){ console.warn('Hero intro skipped:', e); }
+}
+
+/* ---- graceful fallback for any hotlinked photo that fails to load ---- */
+document.querySelectorAll('img').forEach(img => {
+  img.addEventListener('error', function handler(){
+    const wrap = img.parentElement;
+    if (!wrap || wrap.classList.contains('img-fallback')) return;
+    wrap.classList.add('img-fallback');
+    const note = document.createElement('div');
+    note.className = 'img-fallback-icon';
+    note.innerHTML = '<i class="fa-solid fa-image"></i><span>' + (img.alt || 'Meridian') + '</span>';
+    wrap.appendChild(note);
+  }, { once: true });
+});
+
+/* ---- custom cursor ---- */
+try{
+  const cursorDot = document.getElementById('cursorDot');
+  const cursorRing = document.getElementById('cursorRing');
+  const hasFinePointer = window.matchMedia('(pointer:fine)').matches;
+  if (hasFinePointer && cursorDot && cursorRing){
+    document.body.classList.add('has-custom-cursor');
+    window.addEventListener('mousemove', (e) => {
+      gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: .1 });
+      gsap.to(cursorRing, { x: e.clientX, y: e.clientY, duration: .5, ease: 'power3.out' });
+    });
+    document.querySelectorAll('a, button, .pillar-card, .impact-card, .cert-card').forEach(el => {
+      el.addEventListener('mouseenter', () => cursorRing.classList.add('is-active'));
+      el.addEventListener('mouseleave', () => cursorRing.classList.remove('is-active'));
+    });
+  }
+}catch(e){ console.warn('Custom cursor skipped:', e); }
+
+/* ---- magnetic buttons ---- */
+try{
+  document.querySelectorAll('.btn, .btn-login').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const r = btn.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width/2;
+      const y = e.clientY - r.top - r.height/2;
+      gsap.to(btn, { x: x * .3, y: y * .45, duration: .4, ease: 'power2.out' });
+    });
+    btn.addEventListener('mouseleave', () => gsap.to(btn, { x: 0, y: 0, duration: .5, ease: 'elastic.out(1,0.4)' }));
+  });
+}catch(e){ console.warn('Magnetic buttons skipped:', e); }
+
+/* ---- 3D tilt on cards ---- */
+try{
+  document.querySelectorAll('.pillar-card, .impact-card, .cert-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - .5;
+      const py = (e.clientY - r.top) / r.height - .5;
+      gsap.to(card, { rotateY: px * 8, rotateX: py * -8, transformPerspective: 700, duration: .5, ease: 'power2.out' });
+    });
+    card.addEventListener('mouseleave', () => gsap.to(card, { rotateX: 0, rotateY: 0, duration: .6, ease: 'power3.out' }));
+  });
+}catch(e){ console.warn('Tilt cards skipped:', e); }
+
+/* ---- parallax hero image ---- */
+try{
+  gsap.to('.sus-hero-frame img', {
+    yPercent: 10, ease: 'none',
+    scrollTrigger: { trigger: '.sus-hero', start: 'top top', end: 'bottom top', scrub: .6 }
+  });
+}catch(e){ console.warn('Parallax skipped:', e); }
+
+/* ---- floating particle drift (hero background) ---- */
+try{
+  document.querySelectorAll('.sus-particles span').forEach((p, i) => {
+    gsap.set(p, { x: (i * 137) % 100 + 'vw', y: 20 + (i * 53) % 60 + '%', opacity: .35 + (i % 3) * .15 });
+    gsap.to(p, {
+      y: '-=140', duration: 8 + (i % 5) * 2, repeat: -1, ease: 'none', delay: i * .6,
+      onRepeat: () => gsap.set(p, { y: 20 + (i * 53) % 60 + '%' })
+    });
+    gsap.to(p, { x: '+=' + (i % 2 === 0 ? 40 : -40), duration: 5 + i, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+  });
+}catch(e){ console.warn('Particles skipped:', e); }
+
+/* ---- stagger emphasis for grid cards on scroll ---- */
+try{
+  ['.pillar-grid .pillar-card', '.impact-grid .impact-card', '.cert-grid .cert-card'].forEach(sel => {
+    ScrollTrigger.batch(sel, {
+      start: 'top 90%',
+      onEnter: (batch) => gsap.fromTo(batch, { y: 22 }, { y: 0, duration: .7, stagger: .1, ease: 'power3.out', overwrite: 'auto' })
+    });
+  });
+}catch(e){ console.warn('Batch stagger skipped:', e); }
+
+/* =========================================================
+   PAGE-SPECIFIC: circular progress rings
+   ========================================================= */
+const RING_R = 54;
+const RING_C = 2 * Math.PI * RING_R;
+
+function paintRing(ring, animate){
+  const circle = ring.querySelector('.ring-progress');
+  if (!circle) return;
+  const pct = parseFloat(ring.getAttribute('data-percent')) || 0;
+  circle.style.strokeDasharray = RING_C;
+  if (!animate){
+    circle.style.strokeDashoffset = RING_C;
+    return;
+  }
+  const target = RING_C * (1 - Math.min(pct, 100) / 100);
+  gsap.fromTo(circle, { strokeDashoffset: RING_C }, { strokeDashoffset: target, duration: 1.4, ease: 'power3.out' });
+}
+
+document.querySelectorAll('.goal-ring').forEach(r => paintRing(r, false));
+
+/* animate the ring inside the initially-active panel once it scrolls into view */
+try{
+  ScrollTrigger.create({
+    trigger: '.goals-panels',
+    start: 'top 80%',
+    once: true,
+    onEnter: () => {
+      const activeRing = document.querySelector('.goal-panel.is-active .goal-ring');
+      if (activeRing) paintRing(activeRing, true);
+    }
+  });
+}catch(e){
+  const activeRing = document.querySelector('.goal-panel.is-active .goal-ring');
+  if (activeRing) paintRing(activeRing, true);
+}
+
+/* =========================================================
+   PAGE-SPECIFIC: goal tab switcher
+   ========================================================= */
+const goalsTabs = document.querySelectorAll('.goals-tab');
+const goalPanels = document.querySelectorAll('.goal-panel');
+goalsTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    if (tab.classList.contains('is-active')) return;
+    const target = tab.getAttribute('data-target');
+
+    goalsTabs.forEach(t => t.classList.remove('is-active'));
+    tab.classList.add('is-active');
+
+    goalPanels.forEach(panel => {
+      if (panel.getAttribute('data-panel') === target){
+        panel.classList.add('is-active');
+        gsap.fromTo(panel, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: .6, ease: 'power3.out' });
+        const ring = panel.querySelector('.goal-ring');
+        if (ring) paintRing(ring, true);
+      } else {
+        panel.classList.remove('is-active');
+      }
+    });
+  });
+});
+
+/* =========================================================
+   PAGE-SPECIFIC: roadmap line draw + dot pulse
+   ========================================================= */
+try{
+  gsap.to('#roadmapFill', {
+    height: '100%', ease: 'none',
+    scrollTrigger: { trigger: '.roadmap-track', start: 'top 75%', end: 'bottom 60%', scrub: .8 }
+  });
+  ScrollTrigger.batch('.roadmap-dot', {
+    start: 'top 85%',
+    onEnter: (batch) => gsap.fromTo(batch, { scale: 0 }, { scale: 1, duration: .5, stagger: .08, ease: 'back.out(2)' })
+  });
+}catch(e){
+  const fill = document.getElementById('roadmapFill');
+  if (fill) fill.style.height = '100%';
+}
+</script>
+</body>
+</html>
