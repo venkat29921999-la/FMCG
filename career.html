@@ -63,6 +63,12 @@
 
 <div class="menu-overlay" id="menuOverlay"></div>
 <nav class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-top">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
   <a href="index.html">Home</a>
   <a href="categories.html">Categories</a>
   <a href="sustain.html">Sustainability</a>
@@ -541,6 +547,8 @@ window.addEventListener('scroll', () => {
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 const menuOverlay = document.getElementById('menuOverlay');
+const mobileMenuClose = document.getElementById('mobileMenuClose');
+mobileMenuClose && mobileMenuClose.addEventListener('click', () => toggleMenu(false));
 function toggleMenu(open){
   hamburger.classList.toggle('is-active', open);
   mobileMenu.classList.toggle('is-open', open);
